@@ -57,7 +57,7 @@ Disallow: /brand-studio
 Disallow: /__brand/
 Disallow: /__brand
 
-# Primary sitemap for Google Search Console — index covers EN, locale, and image sitemaps.
+# Primary sitemap for Google Search Console — full urlset of every indexable page.
 Sitemap: ${brand.url}/sitemap.xml
 `,
 	'utf8',

@@ -177,8 +177,9 @@ export async function onRequest(context) {
 		return new Response(null, { status: 301, headers });
 	}
 
+	const mappedPath = PATH_REDIRECTS[url.pathname];
 	const pathRedirect =
-		PATH_REDIRECTS[url.pathname] ??
+		(mappedPath && mappedPath !== url.pathname ? mappedPath : null) ??
 		xmlTrailingSlashRedirect(url.pathname) ??
 		trailingSlashRedirect(url.pathname);
 	if (pathRedirect) {

@@ -63,7 +63,6 @@ const PAGES_PER_LOCALE = PRODUCT_PAGES_PER_LOCALE + BLOG_PAGES_PER_LOCALE;
 const I18N_URLS = I18N_LOCALES * PAGES_PER_LOCALE;
 const TOTAL_PAGES = ENGLISH_PAGES + I18N_URLS;
 const HREFLANG_PER_URL = 23;
-const SITEMAP_INDEX_ENTRIES = 1 + I18N_LOCALES + 1; // EN + locales + images
 
 const ENGLISH_PATHS = [
 	'/',
@@ -186,23 +185,28 @@ async function main() {
 		console.log(`Using build output at ${path.relative(ROOT, DIST)}/\n`);
 	}
 
-	const sitemapIndex = await readFile(path.join(DIST, 'sitemap.xml'), 'utf8');
+	const sitemapPrimary = await readFile(path.join(DIST, 'sitemap.xml'), 'utf8');
 	const sitemapEn = await readFile(path.join(DIST, 'sitemap-en.xml'), 'utf8');
 	const sitemapI18n = await readFile(path.join(DIST, 'sitemap-i18n.xml'), 'utf8');
 	const sitemapImages = await readFile(path.join(DIST, 'sitemap-images.xml'), 'utf8');
 	const robots = await readFile(path.join(ROOT, 'public', 'robots.txt'), 'utf8');
 	const redirects = await readFile(path.join(ROOT, 'public', '_redirects'), 'utf8');
 
-	const indexLocs = rebootLocs(sitemapIndex);
+	const primaryLocs = rebootLocs(sitemapPrimary);
 	const enLocs = rebootLocs(sitemapEn);
 	const i18nLocs = rebootLocs(sitemapI18n);
 	const imageLocs = rebootLocs(sitemapImages);
 
-	// sitemap.xml must be a sitemap index (not a urlset)
-	if (!sitemapIndex.includes('<sitemapindex')) {
-		fail('sitemap.xml must be a sitemap index (<sitemapindex>)');
+	// sitemap.xml must list every page URL (urlset), not just child sitemaps
+	if (!sitemapPrimary.includes('<urlset')) {
+		fail('sitemap.xml must be a urlset of page URLs (<urlset>)');
 		bump();
-	} else ok('sitemap.xml is a valid sitemap index');
+	} else ok('sitemap.xml is a valid urlset');
+
+	if (primaryLocs.length !== TOTAL_PAGES) {
+		fail(`sitemap.xml: expected ${TOTAL_PAGES} page URLs, got ${primaryLocs.length}`);
+		bump();
+	} else ok(`sitemap.xml lists all ${TOTAL_PAGES} indexable page URLs`);
 
 	// Legacy sitemap-index.xml must not be emitted — redirect handles old URLs
 	try {
@@ -328,13 +332,17 @@ async function main() {
 			bump();
 		}
 	}
-	for (const loc of indexLocs) {
+	for (const loc of primaryLocs) {
 		if (!loc.startsWith('https://')) {
-			fail(`Non-HTTPS sub-sitemap URL: ${loc}`);
+			fail(`Non-HTTPS primary sitemap URL: ${loc}`);
+			bump();
+		}
+		if (!loc.endsWith('/')) {
+			fail(`Primary sitemap URL missing trailing slash: ${loc}`);
 			bump();
 		}
 		if (loc.includes('www.')) {
-			fail(`Sub-sitemap URL must use apex domain (no www): ${loc}`);
+			fail(`Primary sitemap URL must use apex domain (no www): ${loc}`);
 			bump();
 		}
 	}
@@ -347,28 +355,12 @@ async function main() {
 		bump();
 	} else ok(`Homepage has ${HREFLANG_PER_URL} hreflang alternates (22 locales + x-default)`);
 
-	// sitemap.xml index — EN + 21 locale sitemaps + images
-	if (indexLocs.length !== SITEMAP_INDEX_ENTRIES) {
-		fail(`sitemap.xml: expected ${SITEMAP_INDEX_ENTRIES} sub-sitemaps, got ${indexLocs.length}`);
+	// Primary sitemap must include every EN + locale page
+	const missingPrimary = [...enLocs, ...i18nLocs].filter((u) => !primaryLocs.includes(u));
+	if (missingPrimary.length > 0) {
+		fail(`sitemap.xml missing page URLs: ${missingPrimary.slice(0, 5).join(', ')}`);
 		bump();
-	} else ok(`sitemap.xml lists ${SITEMAP_INDEX_ENTRIES} sub-sitemaps`);
-
-	if (!indexLocs.includes(`${SITE}/sitemap-en.xml`)) {
-		fail('sitemap.xml missing sitemap-en.xml');
-		bump();
-	}
-	if (!indexLocs.includes(`${SITE}/sitemap-images.xml`)) {
-		fail('sitemap.xml missing sitemap-images.xml');
-		bump();
-	}
-	for (const locale of I18N_LOCALE_CODES) {
-		const loc = `${SITE}/sitemap-${locale}.xml`;
-		if (!indexLocs.includes(loc)) {
-			fail(`sitemap.xml missing sitemap-${locale}.xml`);
-			bump();
-		}
-	}
-	if (errors === 0) ok('sitemap.xml lists English, all 21 locale, and image sitemaps');
+	} else ok('sitemap.xml includes every English and locale page URL');
 
 	// robots.txt — single GSC submission path
 	if (!robots.includes(`${SITE}/sitemap.xml`)) {
@@ -381,7 +373,7 @@ async function main() {
 	}
 	for (const sub of ['sitemap-i18n.xml', 'sitemap-images.xml', 'sitemap-en.xml', 'sitemap-blog.xml']) {
 		if (robots.includes(`${SITE}/${sub}`)) {
-			fail(`robots.txt must not list redundant sitemap: ${sub} (already covered by sitemap.xml index)`);
+			fail(`robots.txt must not list redundant sitemap: ${sub} (already covered by sitemap.xml)`);
 			bump();
 		}
 	}
@@ -389,10 +381,7 @@ async function main() {
 
 	// Built HTML vs sitemap total
 	const htmlPaths = await collectHtmlPaths(DIST);
-	const sitemapPaths = new Set([
-		...enLocs.map((u) => u.replace(SITE, '') || '/'),
-		...i18nLocs.map((u) => u.replace(SITE, '')),
-	]);
+	const sitemapPaths = new Set(primaryLocs.map((u) => u.replace(SITE, '') || '/'));
 
 	const htmlSet = new Set(htmlPaths);
 	const missingFromSitemap = [...htmlSet].filter((p) => !sitemapPaths.has(p));
