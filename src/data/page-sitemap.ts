@@ -1,5 +1,5 @@
 import { siteConfig } from './site';
-import { tarkovImages } from './tarkov';
+import { fortniteImages } from './fortnite';
 import { englishPaths, pageIds, type PageId } from './i18n/routing';
 import { pageSitemapMeta } from './sitemap-meta';
 import {
@@ -31,34 +31,34 @@ const img = (path: string, title: string, caption: string): SitemapImage => ({
 });
 
 /**
- * One screenshot per page — paths stay in tarkovImages; titles/captions from brand tokens.
+ * One screenshot per page — paths stay in fortniteImages; titles/captions from brand tokens.
  */
 const pageImageSrcById: Record<PageId, string> = {
-	home: tarkovImages.hero,
-	'tarkov-esp': tarkovImages.playerEsp,
-	'tarkov-aimbot': tarkovImages.aimbotCombat,
-	features: tarkovImages.aimbotSkeleton,
-	pricing: tarkovImages.cheatsCombat,
-	setup: tarkovImages.playerEsp,
-	updates: tarkovImages.hero,
-	faq: tarkovImages.aimbotSkeleton,
-	support: tarkovImages.cheatsCombat,
-	undetected: tarkovImages.espWallhack,
-	wallhack: tarkovImages.espWallhack,
-	radar: tarkovImages.playerEsp,
-	battleye: tarkovImages.aimbotCombat,
-	'cheats-2026': tarkovImages.hero,
-	hacks: tarkovImages.cheatsCombat,
-	'cheat-download': tarkovImages.cheatsCombat,
-	'mod-menu': tarkovImages.playerEsp,
-	'soft-aim': tarkovImages.aimbotSkeleton,
-	'best-cheats': tarkovImages.hero,
-	'aimbot-hack': tarkovImages.aimbotSkeleton,
-	'esp-hack': tarkovImages.espWallhack,
-	'unlock-all': tarkovImages.playerEsp,
-	privacy: tarkovImages.aimbotCombat,
-	refund: tarkovImages.cheatsCombat,
-	terms: tarkovImages.aimbotSkeleton,
+	home: fortniteImages.hero,
+	'fortnite-esp': fortniteImages.playerEsp,
+	'fortnite-aimbot': fortniteImages.aimbotCombat,
+	features: fortniteImages.aimbotSkeleton,
+	pricing: fortniteImages.cheatsCombat,
+	setup: fortniteImages.playerEsp,
+	updates: fortniteImages.hero,
+	faq: fortniteImages.aimbotSkeleton,
+	support: fortniteImages.cheatsCombat,
+	undetected: fortniteImages.espWallhack,
+	wallhack: fortniteImages.espWallhack,
+	radar: fortniteImages.playerEsp,
+	'eac-bypass': fortniteImages.aimbotCombat,
+	'cheats-2026': fortniteImages.hero,
+	hacks: fortniteImages.cheatsCombat,
+	'cheat-download': fortniteImages.cheatsCombat,
+	'mod-menu': fortniteImages.playerEsp,
+	'soft-aim': fortniteImages.aimbotSkeleton,
+	'best-cheats': fortniteImages.hero,
+	'aimbot-hack': fortniteImages.aimbotSkeleton,
+	'esp-hack': fortniteImages.espWallhack,
+	'unlock-all': fortniteImages.playerEsp,
+	privacy: fortniteImages.aimbotCombat,
+	refund: fortniteImages.cheatsCombat,
+	terms: fortniteImages.aimbotSkeleton,
 };
 
 for (const pageId of pageIds) {

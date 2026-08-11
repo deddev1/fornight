@@ -48,7 +48,7 @@ export function getReviewSitemapEntries() {
 			images: [
 				{
 					url: reviewOgImage.url,
-					title: `Tarkov Cheats review by @${review.handle}`,
+					title: `Fortnite Cheats review by @${review.handle}`,
 					caption: review.seoDescription,
 				},
 			],

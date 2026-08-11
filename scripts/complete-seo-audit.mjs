@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Completes escape-from-tarkov-cheats SEO audit: add missing pages, fix leftovers, strip Zadeyo from meta.
+ * Completes escape-from-fortnite-cheats SEO audit: add missing pages, fix leftovers, strip Zadeyo from meta.
  * Run: node scripts/complete-seo-audit.mjs
  */
 import { readFile, writeFile, mkdir, access } from 'node:fs/promises';
@@ -11,70 +11,70 @@ const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const NODE = 'C:\\Program Files\\nodejs\\node.exe';
 
 const EXTRA_PAGES = [
-	{ id: 'hacks', dir: 'tarkov-cheats', pageId: 'hacks' },
-	{ id: 'cheat-download', dir: 'tarkov-cheat-download', pageId: 'cheat-download' },
-	{ id: 'mod-menu', dir: 'tarkov-mod-menu', pageId: 'mod-menu' },
-	{ id: 'soft-aim', dir: 'tarkov-soft-aim', pageId: 'soft-aim' },
-	{ id: 'best-cheats', dir: 'best-tarkov-cheats', pageId: 'best-cheats' },
-	{ id: 'aimbot-hack', dir: 'tarkov-aimbot-hack', pageId: 'aimbot-hack' },
-	{ id: 'esp-hack', dir: 'tarkov-esp-hack', pageId: 'esp-hack' },
-	{ id: 'unlock-all', dir: 'tarkov-unlock-all', pageId: 'unlock-all' },
+	{ id: 'hacks', dir: 'fortnite-cheats', pageId: 'hacks' },
+	{ id: 'cheat-download', dir: 'fortnite-cheat-download', pageId: 'cheat-download' },
+	{ id: 'mod-menu', dir: 'fortnite-mod-menu', pageId: 'mod-menu' },
+	{ id: 'soft-aim', dir: 'fortnite-soft-aim', pageId: 'soft-aim' },
+	{ id: 'best-cheats', dir: 'best-fortnite-cheats', pageId: 'best-cheats' },
+	{ id: 'aimbot-hack', dir: 'fortnite-aimbot-hack', pageId: 'aimbot-hack' },
+	{ id: 'esp-hack', dir: 'fortnite-esp-hack', pageId: 'esp-hack' },
+	{ id: 'unlock-all', dir: 'fortnite-unlock-all', pageId: 'unlock-all' },
 ];
 
 const GLOBAL_REPLACEMENTS = [
-	[/tarkov-tarkov/g, 'tarkov'],
-	[/battleye-bypass-tarkov/g, 'battleye-bypass'],
-	[/Escape from Tarkov/g, 'Escape from Tarkov'],
-	[/Escape from Tarkov/g, 'Escape from Tarkov'],
-	[/Call of Duty/g, 'Escape from Tarkov'],
-	[/Tarkov Wallhack/g, 'Escape from Tarkov Wallhack'],
-	[/Tarkov Radar Hack/g, 'Escape from Tarkov Radar Hack'],
-	[/Tarkov Cheat Features/g, 'Escape from Tarkov Cheat Features'],
-	[/Tarkov Cheat Pricing/g, 'Escape from Tarkov Cheat Pricing'],
-	[/Tarkov Cheat Setup/g, 'Escape from Tarkov Cheat Setup'],
-	[/Tarkov Cheat Status/g, 'Escape from Tarkov Cheat Status'],
-	[/Tarkov Cheat Support/g, 'Escape from Tarkov Cheat Support'],
-	[/Tarkov squad fight/g, 'Escape from Tarkov squad fight'],
-	[/Tarkov squad builder/g, 'Escape from Tarkov loadout builder'],
-	[/Tarkov store header/g, 'Escape from Tarkov header'],
-	[/Tarkov wasteland combat/g, 'Escape from Tarkov battle royale combat'],
-	[/Tarkov loadout builder/g, 'Escape from Tarkov loadout builder'],
-	[/Tarkov pricing/g, 'Escape from Tarkov pricing'],
-	[/Tarkov BattlEye anti-cheat/g, 'Escape from Tarkov BattlEye anti-cheat'],
-	[/on Tarkov/g, 'on Escape from Tarkov'],
-	[/for Tarkov/g, 'for Escape from Tarkov'],
-	[/Tarkov guides/g, 'Escape from Tarkov guides'],
-	[/Tarkov guide/g, 'Escape from Tarkov guide'],
-	[/Tarkov hileleri/g, 'Escape from Tarkov hileleri'],
-	[/Tarkov hile/g, 'Escape from Tarkov hile'],
-	[/Tarkov hileleri/g, 'Escape from Tarkov hileleri'],
-	[/cheatów Tarkov/g, 'cheatów Escape from Tarkov'],
-	[/cheat Tarkov/g, 'cheat Escape from Tarkov'],
-	[/cheats Tarkov/g, 'cheats Escape from Tarkov'],
-	[/trucos Tarkov/g, 'trucos Escape from Tarkov'],
-	[/triche Tarkov/g, 'triche Escape from Tarkov'],
-	[/trucchi Tarkov/g, 'trucchi Escape from Tarkov'],
-	[/Wallhack Tarkov/g, 'Escape from Tarkov Wallhack'],
-	[/cheat Tarkov undetected/g, 'cheat Escape from Tarkov undetected'],
-	[/cheats Tarkov undetected/g, 'cheats Escape from Tarkov undetected'],
+	[/fortnite-fortnite/g, 'fortnite'],
+	[/eac-bypass-fortnite/g, 'eac-bypass'],
+	[/Fortnite/g, 'Fortnite'],
+	[/Fortnite/g, 'Fortnite'],
+	[/Call of Duty/g, 'Fortnite'],
+	[/Fortnite Wallhack/g, 'Fortnite Wallhack'],
+	[/Fortnite Radar Hack/g, 'Fortnite Radar Hack'],
+	[/Fortnite Cheat Features/g, 'Fortnite Cheat Features'],
+	[/Fortnite Cheat Pricing/g, 'Fortnite Cheat Pricing'],
+	[/Fortnite Cheat Setup/g, 'Fortnite Cheat Setup'],
+	[/Fortnite Cheat Status/g, 'Fortnite Cheat Status'],
+	[/Fortnite Cheat Support/g, 'Fortnite Cheat Support'],
+	[/Fortnite squad fight/g, 'Fortnite squad fight'],
+	[/Fortnite squad builder/g, 'Fortnite loadout builder'],
+	[/Fortnite store header/g, 'Fortnite header'],
+	[/Fortnite wasteland combat/g, 'Fortnite battle royale combat'],
+	[/Fortnite loadout builder/g, 'Fortnite loadout builder'],
+	[/Fortnite pricing/g, 'Fortnite pricing'],
+	[/Fortnite Easy Anti-Cheat/g, 'Fortnite Easy Anti-Cheat'],
+	[/on Fortnite/g, 'on Fortnite'],
+	[/for Fortnite/g, 'for Fortnite'],
+	[/Fortnite guides/g, 'Fortnite guides'],
+	[/Fortnite guide/g, 'Fortnite guide'],
+	[/Fortnite hileleri/g, 'Fortnite hileleri'],
+	[/Fortnite hile/g, 'Fortnite hile'],
+	[/Fortnite hileleri/g, 'Fortnite hileleri'],
+	[/cheatów Fortnite/g, 'cheatów Fortnite'],
+	[/cheat Fortnite/g, 'cheat Fortnite'],
+	[/cheats Fortnite/g, 'cheats Fortnite'],
+	[/trucos Fortnite/g, 'trucos Fortnite'],
+	[/triche Fortnite/g, 'triche Fortnite'],
+	[/trucchi Fortnite/g, 'trucchi Fortnite'],
+	[/Wallhack Fortnite/g, 'Fortnite Wallhack'],
+	[/cheat Fortnite undetected/g, 'cheat Fortnite undetected'],
+	[/cheats Fortnite undetected/g, 'cheats Fortnite undetected'],
 	[/Verdansk beams/g, 'long-range AR beams'],
-	[/scav-run room clears/g, 'close-quarters room clears'],
-	[/Verdansk and Urzikstan/g, 'Verdansk and scav-run'],
-	[/Verdansk, Urzikstan/g, 'Verdansk, scav-run'],
-	[/raid and scav-run/g, 'raid and scav-run'],
+	[/zero-build room clears/g, 'close-quarters room clears'],
+	[/Verdansk and Urzikstan/g, 'Verdansk and zero-build'],
+	[/Verdansk, Urzikstan/g, 'Verdansk, zero-build'],
+	[/raid and zero-build/g, 'raid and zero-build'],
 	[/Activision's anti-cheat/g, "Epic Games' anti-cheat"],
 	[/Activision anti-cheat/g, 'Epic Games anti-cheat'],
 	[/Activision ships/g, 'Epic Games ships'],
 	[/Activision security/g, 'Epic Games security'],
 	[/Activision bans/g, 'Epic Games bans'],
 	[/Activision/g, 'Epic Games'],
-	[/battleye/gi, 'battleye'],
-	[/BattlEye/g, 'BattlEye anti-cheat'],
-	[/escape-from-tarkov-cheats/g, 'escape-from-tarkov-cheats'],
-	[/escape-from-tarkov/g, 'tarkov'],
-	[/Undetected Wallhack for Call of Duty/g, 'Undetected Wallhack for Escape from Tarkov'],
+	[/eac/gi, 'eac-bypass'],
+	[/Easy Anti-Cheat/g, 'Easy Anti-Cheat'],
+	[/escape-from-fortnite-cheats/g, 'escape-from-fortnite-cheats'],
+	[/fortnite/g, 'fortnite'],
+	[/Undetected Wallhack for Call of Duty/g, 'Undetected Wallhack for Fortnite'],
 	[/How ESP wallhack, radar, and Aimbot rebuild after Call of Duty anti-cheat/g,
-		'How ESP wallhack, radar, and Aimbot rebuild after Escape from Tarkov anti-cheat'],
+		'How ESP wallhack, radar, and Aimbot rebuild after Fortnite anti-cheat'],
 ];
 
 /** Remove Zadeyo from meta description/title strings only */
@@ -90,7 +90,7 @@ function stripZadeyoFromMeta(text) {
 		.replace(/\s*Zadeyo delivery\.?/gi, 'instant digital delivery.')
 		.replace(/\s*and Zadeyo delivery\.?/gi, ' and instant digital delivery.')
 		.replace(/\|\s*Instant Zadeyo Delivery/g, '| Instant Digital Delivery')
-		.replace(/Buy on Zadeyo/g, 'Buy Tarkov Cheats')
+		.replace(/Buy on Zadeyo/g, 'Buy Fortnite Cheats')
 		.replace(/\s{2,}/g, ' ')
 		.trim();
 }
@@ -169,38 +169,38 @@ import LocalizedPage from '../../components/LocalizedPage.astro';
 async function fixLocalesBlogUi() {
 	const file = path.join(ROOT, 'src', 'data', 'i18n', 'locales.ts');
 	let content = await readFile(file, 'utf8');
-	content = content.replace(/Tarkov guides/g, 'Escape from Tarkov guides');
-	content = content.replace(/Tarkov guide/g, 'Escape from Tarkov guide');
-	content = content.replace(/Tarkov hileleri/g, 'Escape from Tarkov hileleri');
-	content = content.replace(/Tarkov hile/g, 'Escape from Tarkov hile');
-	content = content.replace(/cheat Tarkov/g, 'cheat Escape from Tarkov');
-	content = content.replace(/cheats Tarkov/g, 'cheats Escape from Tarkov');
-	content = content.replace(/trucos Tarkov/g, 'trucos Escape from Tarkov');
-	content = content.replace(/triche Tarkov/g, 'triche Escape from Tarkov');
-	content = content.replace(/trucchi Tarkov/g, 'trucchi Escape from Tarkov');
-	content = content.replace(/cheatów Tarkov/g, 'cheatów Escape from Tarkov');
-	content = content.replace(/читов Tarkov/g, 'читов Escape from Tarkov');
-	content = content.replace(/читів Tarkov/g, 'читів Escape from Tarkov');
-	content = content.replace(/Tarkovチート/g, 'Escape from Tarkovチート');
-	content = content.replace(/Tarkov 치트/g, 'Escape from Tarkov 치트');
-	content = content.replace(/Tarkov作弊/g, 'Escape from Tarkov作弊');
-	content = content.replace(/Tarkov rehberleri/g, 'Escape from Tarkov rehberleri');
-	content = content.replace(/Tarkov gidsen/g, 'Escape from Tarkov gidsen');
-	content = content.replace(/Tarkov průvodce/g, 'Escape from Tarkov průvodce');
-	content = content.replace(/Tarkov guider/g, 'Escape from Tarkov guider');
-	content = content.replace(/Tarkov related/g, 'Escape from Tarkov related');
-	content = content.replace(/Tarkov ガイド/g, 'Escape from Tarkov ガイド');
-	content = content.replace(/Tarkov 가이드/g, 'Escape from Tarkov 가이드');
-	content = content.replace(/Tarkov指南/g, 'Escape from Tarkov指南');
-	content = content.replace(/Tarkov गाइड/g, 'Escape from Tarkov गाइड');
-	content = content.replace(/Tarkov panduan/g, 'Escape from Tarkov panduan');
-	content = content.replace(/Tarkov คู่มือ/g, 'Escape from Tarkov คู่มือ');
-	content = content.replace(/Tarkov hướng dẫn/g, 'Escape from Tarkov hướng dẫn');
+	content = content.replace(/Fortnite guides/g, 'Fortnite guides');
+	content = content.replace(/Fortnite guide/g, 'Fortnite guide');
+	content = content.replace(/Fortnite hileleri/g, 'Fortnite hileleri');
+	content = content.replace(/Fortnite hile/g, 'Fortnite hile');
+	content = content.replace(/cheat Fortnite/g, 'cheat Fortnite');
+	content = content.replace(/cheats Fortnite/g, 'cheats Fortnite');
+	content = content.replace(/trucos Fortnite/g, 'trucos Fortnite');
+	content = content.replace(/triche Fortnite/g, 'triche Fortnite');
+	content = content.replace(/trucchi Fortnite/g, 'trucchi Fortnite');
+	content = content.replace(/cheatów Fortnite/g, 'cheatów Fortnite');
+	content = content.replace(/читов Fortnite/g, 'читов Fortnite');
+	content = content.replace(/читів Fortnite/g, 'читів Fortnite');
+	content = content.replace(/Fortniteチート/g, 'Fortniteチート');
+	content = content.replace(/Fortnite 치트/g, 'Fortnite 치트');
+	content = content.replace(/Fortnite作弊/g, 'Fortnite作弊');
+	content = content.replace(/Fortnite rehberleri/g, 'Fortnite rehberleri');
+	content = content.replace(/Fortnite gidsen/g, 'Fortnite gidsen');
+	content = content.replace(/Fortnite průvodce/g, 'Fortnite průvodce');
+	content = content.replace(/Fortnite guider/g, 'Fortnite guider');
+	content = content.replace(/Fortnite related/g, 'Fortnite related');
+	content = content.replace(/Fortnite ガイド/g, 'Fortnite ガイド');
+	content = content.replace(/Fortnite 가이드/g, 'Fortnite 가이드');
+	content = content.replace(/Fortnite指南/g, 'Fortnite指南');
+	content = content.replace(/Fortnite गाइड/g, 'Fortnite गाइड');
+	content = content.replace(/Fortnite panduan/g, 'Fortnite panduan');
+	content = content.replace(/Fortnite คู่มือ/g, 'Fortnite คู่มือ');
+	content = content.replace(/Fortnite hướng dẫn/g, 'Fortnite hướng dẫn');
 	await writeFile(file, content, 'utf8');
 	console.log('Fixed locales.ts blogUi');
 }
 
-console.log('=== Tarkov Cheats SEO completion ===\n');
+console.log('=== Fortnite Cheats SEO completion ===\n');
 await applyGlobalFixes();
 await createExtraPages();
 await fixLocalesBlogUi();

@@ -1,16 +1,16 @@
 /**
  * Cloudflare Worker — host canonicalization before static assets.
- * Canonical site: https://besttarkovcheats.com (matches brand.url)
+ * Canonical site: https://bestfortnitecheats.com (matches brand.url)
  *
- * Requires DNS: CNAME `www` → `besttarkovcheats.com` (proxied) AND
- * Workers custom domain `www.besttarkovcheats.com` attached — otherwise
+ * Requires DNS: CNAME `www` → `bestfortnitecheats.com` (proxied) AND
+ * Workers custom domain `www.bestfortnitecheats.com` attached — otherwise
  * www is NXDOMAIN and Seobility fails the www/non-www check.
  */
 export interface Env {
 	ASSETS: Fetcher;
 }
 
-const CANONICAL_HOST = 'besttarkovcheats.com';
+const CANONICAL_HOST = 'bestfortnitecheats.com';
 
 function canonicalUrl(request: Request): URL | null {
 	const url = new URL(request.url);

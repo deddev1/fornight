@@ -123,9 +123,9 @@ export const productInfo = {
 	heroLede: fillBrandTokens(brandCopy.heroLede),
 	features: {
 		esp: [
-			'PMC and Scav ESP / wallhack',
+			'BR and Zero Build ESP / wallhack',
 			'Player gear and threat cues',
-			'Loot and extract markers',
+			'Loot and reboot markers',
 			'Distance readouts',
 			'Toggleable ESP categories',
 			'Corpse and container highlights',
@@ -137,7 +137,7 @@ export const productInfo = {
 			'Hotkeys mid-raid',
 			'Per-weapon profiles',
 		],
-		radar: ['2D radar overlay', 'Adjustable range', 'Works in PMC raids and Scav runs'],
+		radar: ['2D radar overlay', 'Adjustable range', 'Works in Battle Royale and Zero Build'],
 		general: [
 			fillBrandTokens('{antiCheat} maintenance after patches'),
 			'Digital delivery after checkout',

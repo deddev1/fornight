@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-/** Final pass: fix remaining Tarkov references in src/. */
+/** Final pass: fix remaining Fortnite references in src/. */
 import { readFile, writeFile, readdir } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -8,29 +8,29 @@ const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', 's
 const REMOVE_PAGE_IDS = ['hacks', 'cheat-download', 'mod-menu', 'soft-aim', 'best-cheats', 'aimbot-hack', 'esp-hack', 'unlock-all'];
 
 const REPLACEMENTS = [
-	['tarkovImages', 'tarkovImages'],
-	["from '../data/tarkov'", "from '../data/tarkov'"],
-	["from './tarkov'", "from './tarkov'"],
-	['/undetected-tarkov-cheats/', '/undetected-tarkov-cheats/'],
-	['/tarkov-wallhack/', '/tarkov-wallhack/'],
-	['/tarkov-radar-hack/', '/tarkov-radar-hack/'],
-	['/battleye-bypass/', '/battleye-bypass/'],
-	['/tarkov-cheats-2026/', '/tarkov-cheats-2026/'],
-	['/tarkov-aimbot/', '/tarkov-aimbot/'],
-	['/tarkov-esp/', '/tarkov-esp/'],
-	['/tarkov-cheats/', '/tarkov-esp/'],
-	['Tarkov Cheats', 'Tarkov Cheats'],
-	['Tarkov cheats', 'Tarkov cheats'],
-	['Tarkov wallhack', 'Escape from Tarkov wallhack'],
-	['Tarkov radar', 'Escape from Tarkov radar'],
-	['Tarkov Aimbot', 'Escape from Tarkov Aimbot'],
-	['Tarkov ESP', 'Escape from Tarkov ESP'],
-	['Escape from Tarkov', 'Escape from Tarkov'],
-	['BattlEye', 'BattlEye anti-cheat'],
-	['battleye', 'battleye'],
-	['besttarkovcheats.com', 'besttarkovcheats.com'],
+	['fortniteImages', 'fortniteImages'],
+	["from '../data/fortnite'", "from '../data/fortnite'"],
+	["from './fortnite'", "from './fortnite'"],
+	['/undetected-fortnite-cheats/', '/undetected-fortnite-cheats/'],
+	['/fortnite-wallhack/', '/fortnite-wallhack/'],
+	['/fortnite-radar-hack/', '/fortnite-radar-hack/'],
+	['/eac-bypass/', '/eac-bypass/'],
+	['/fortnite-cheats-2026/', '/fortnite-cheats-2026/'],
+	['/fortnite-aimbot/', '/fortnite-aimbot/'],
+	['/fortnite-esp/', '/fortnite-esp/'],
+	['/fortnite-cheats/', '/fortnite-esp/'],
+	['Fortnite Cheats', 'Fortnite Cheats'],
+	['Fortnite cheats', 'Fortnite cheats'],
+	['Fortnite wallhack', 'Fortnite wallhack'],
+	['Fortnite radar', 'Fortnite radar'],
+	['Fortnite Aimbot', 'Fortnite Aimbot'],
+	['Fortnite ESP', 'Fortnite ESP'],
+	['Fortnite', 'Fortnite'],
+	['Easy Anti-Cheat', 'Easy Anti-Cheat'],
+	['eac-bypass', 'eac-bypass'],
+	['bestfortnitecheats.com', 'bestfortnitecheats.com'],
 	['operatorEsp', 'playerEsp'],
-	['extractFight', 'rebootFight'],
+	['rebootFight', 'rebootFight'],
 	['alMazrah', 'battleRoyaleIsland'],
 ];
 

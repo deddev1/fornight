@@ -1,6 +1,6 @@
-# Tarkov Cheats — Marketing Site
+# Fortnite Cheats — Marketing Site
 
-Static Astro 7 site for [besttarkovcheats.com](https://besttarkovcheats.com). Primary SEO keyword: **tarkov cheats** (secondary: escape from tarkov cheats, aimbot, ESP).
+Static Astro 7 site for [bestfortnitecheats.com](https://bestfortnitecheats.com). Primary SEO keyword: **fortnite cheats** (secondary: fortnite aimbot, fortnite esp, undetected fortnite cheats).
 
 ## Stack
 
@@ -25,11 +25,11 @@ npm run build:validate
 
 ## Deploy (Cloudflare Pages)
 
-1. Create a Cloudflare Pages project named **besttarkovcheats**
+1. Create a Cloudflare Pages project named **bestfortnitecheats**
 2. Connect this repo or upload `dist/` after `npm run build`
 3. Build command: `npm run build`
 4. Output directory: `dist`
-5. Add custom domain **besttarkovcheats.com** (apex) and redirect **www** → apex
+5. Add custom domain **bestfortnitecheats.com** (apex) and redirect **www** → apex
 6. Enable SSL **Always Use HTTPS**
 
 CLI deploy:
@@ -41,8 +41,8 @@ npm run pages:deploy
 ## Environment
 
 - Node.js >= 22.12.0
-- Checkout URL: Zadeyo Tarkov product (`siteConfig.checkoutUrl` in `src/data/site.ts`)
+- Checkout URL: Zadeyo Fortnite product (`siteConfig.checkoutUrl` in `src/data/site.ts`)
 
 ## License
 
-Private — for besttarkovcheats.com deployment only.
+Private — for bestfortnitecheats.com deployment only.

@@ -1,107 +1,179 @@
 import { mkdir, readdir, unlink, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import sharp from 'sharp';
+import { buildOverlaySvg } from './fortnite-hack-overlays.mjs';
 
-const CDN_A = 'https://sm.ign.com/t/ign_za/photo/default';
-const CDN_B = 'https://sm.ign.com/t/ign_latam/photo/default';
-const CDN_GALLERY = 'https://sm.ign.com/t/ign_pk/gallery/f/tarkov-g';
 const imagesDir = path.resolve('public/images');
 const publicDir = path.resolve('public');
 
+/** Verified IGN Fortnite screenshot CDN paths. */
+const ME_G = 'https://sm.ign.com/t/ign_me/gallery/c/call-of-du';
+const ME = 'https://sm.ign.com/t/ign_me/screenshot/c/call-of-du';
+const NL = 'https://sm.ign.com/t/ign_nl/screenshot/c/call-of-du';
+const BR = 'https://sm.ign.com/t/ign_br/screenshot/default';
+const PK = 'https://sm.ign.com/t/ign_pk/screenshot/default';
+
 /**
- * Escape from Tarkov gallery shots — filenames include primary SEO keywords
- * (tarkov, cheats, esp, aimbot, wallhack, battle-royale, etc.)
+ * Fortnite cheats image pipeline:
+ * 1. Download real Fortnite gameplay from IGN
+ * 2. Composite ESP / aimbot / radar / mod-menu overlays for fortnite cheats marketing
  */
 const KEYWORD_ASSETS = [
-	{ file: 'escape-from-tarkov-cheats-hero.webp', url: `${CDN_GALLERY}/tarkov-gameplay-screenshots-2024_s2qs.1400.jpg` },
-	{ file: 'escape-from-tarkov-cheats-cover.webp', url: `${CDN_B}/tarkov-battle-royale-chapter-5-season-1-screenshot-a-1920x_xkzh.1400.jpg` },
-	{ file: 'tarkov-loadout-builder.webp', url: `${CDN_B}/tarkov-battle-royale-chapter-5-season-1-screenshot-b-1920x_8z8k.1400.jpg` },
-	{ file: 'escape-from-tarkov-cheats-aimbot-combat.webp', url: `${CDN_B}/tarkov-battle-royale-chapter-5-season-1-screenshot-c-1920x_vu5r.1400.jpg` },
-	{ file: 'tarkov-squad-fight.webp', url: `${CDN_B}/tarkov-battle-royale-chapter-5-season-1-screenshot-d-1920x_mzsk.1400.jpg` },
-	{ file: 'escape-from-tarkov-cheats-esp-wallhack.webp', url: `${CDN_B}/tarkov-battle-royale-chapter-5-season-1-train-1920x1080-a1_1nkx.1400.jpg` },
-	{ file: 'escape-from-tarkov-cheats-package.webp', url: 'https://sm.ign.com/t/ign_latam/gallery/f/tarkov-c/tarkov-chapter-5-underground-images_5h3j.1400.jpg' },
-	{ file: 'tarkov-header-art.webp', url: 'https://sm.ign.com/t/ign_in/screenshot/default/tarkov-unreal-engine-5-1-scree-3_bcxh.1400.jpg' },
-	{ file: 'tarkov-battle-royale-combat.webp', url: `${CDN_A}/screenshot-7105-1725916496016_j9dr.1400.jpg` },
-	{ file: 'tarkov-reboot-van-fight.webp', url: `${CDN_A}/screenshot-6960-1725916496015_vbtg.1400.jpg` },
-	{ file: 'tarkov-player-esp.webp', url: `${CDN_A}/screenshot-6815-1725916496014_zkpv.1400.jpg` },
-	{ file: 'tarkov-zero-build-combat.webp', url: `${CDN_A}/screenshot-6670-1725916496013_zv3w.1400.jpg` },
-	{ file: 'tarkov-zero-build-mode.webp', url: `${CDN_A}/screenshot-6380-1725916496012_gj96.1400.jpg` },
-	{ file: 'tarkov-al-mazrah-map.webp', url: 'https://sm.ign.com/t/ign_latam/gallery/f/tarkov-c/tarkov-chapter-5-underground-images_5h3j.1400.jpg' },
+	{
+		file: 'fortnite-cheats-hero.webp',
+		url: `${ME_G}/fortnite-screenshots_wjkx.1400.jpg`,
+		overlay: 'hero',
+	},
+	{
+		file: 'fortnite-cheats-aimbot.webp',
+		url: `${ME}/fortnite-screenshots_wjb1.1400.jpg`,
+		overlay: 'aimbot',
+	},
+	{
+		file: 'fortnite-cheats-esp-wallhack.webp',
+		url: `${ME}/fortnite-screenshots_55fp.1400.jpg`,
+		overlay: 'wallhack',
+	},
+	{
+		file: 'fortnite-squad-fight.webp',
+		url: `${ME}/fortnite-screenshots_67cp.1400.jpg`,
+		overlay: 'esp',
+	},
+	{
+		file: 'fortnite-cheats-package.webp',
+		url: `${ME}/fortnite-screenshots_anf4.1400.jpg`,
+		overlay: 'menu',
+	},
+	{
+		file: 'fortnite-cheats-cover.webp',
+		url: `${ME}/fortnite-screenshots_7pr8.1400.jpg`,
+		overlay: 'esp',
+	},
+	{
+		file: 'fortnite-header-art.webp',
+		url: `${ME}/fortnite-screenshots_c36j.1400.jpg`,
+		overlay: 'hero',
+	},
+	{
+		file: 'fortnite-loadout-builder.webp',
+		url: `${NL}/fortnite-screenshots_e5gw.1400.jpg`,
+		overlay: 'menu',
+	},
+	{
+		file: 'fortnite-battle-royale-combat.webp',
+		url: `${ME}/fortnite-screenshots_4h92.1400.jpg`,
+		overlay: 'esp',
+	},
+	{
+		file: 'fortnite-reboot-fight.webp',
+		url: `${BR}/goulag-inside_zusa.1400.png`,
+		overlay: 'reboot',
+	},
+	{
+		file: 'fortnite-player-esp.webp',
+		url: `${ME}/fortnite-screenshots_rb92.1400.jpg`,
+		overlay: 'esp',
+	},
+	{
+		file: 'fortnite-zero-build-combat.webp',
+		url: `${BR}/plunder_px6d.1400.png`,
+		overlay: 'zero-build',
+	},
+	{
+		file: 'fortnite-zero-build-mode.webp',
+		url: `${BR}/parachuting_qhh2.1400.png`,
+		overlay: 'loot',
+	},
+	{
+		file: 'fortnite-verdansk-map.webp',
+		url: `${PK}/wz-verdansksubway-1601169413816_x2hg.1400.jpg`,
+		overlay: 'map',
+	},
 ];
 
-const LEGACY_PATTERNS = [
-	/^tarkov-extract-fight/,
-	/^tarkov-operator-esp/,
-	/^tarkov-verdansk-combat/,
-	/^tarkov-scav-run-mode/,
-	/^tarkov-al-mazrah-map/,
+const REMOVE_PATTERNS = [
+	/^fortnite-/,
+	/-\d+w\.webp$/i,
+	/^fortnite-cheats-logo/,
 ];
 
-async function fetchWebp(url) {
+async function fetchBase(url) {
 	const res = await fetch(url, {
-		headers: { 'User-Agent': 'Mozilla/5.0 (compatible; TarkovCheatsSite/1.0)' },
+		headers: { 'User-Agent': 'Mozilla/5.0 (compatible; FortniteHacksSite/1.0)' },
 	});
-	if (!res.ok) throw new Error(`Failed to fetch ${url}: ${res.status}`);
-	const input = Buffer.from(await res.arrayBuffer());
-	return sharp(input).resize({ width: 1920, withoutEnlargement: true }).webp({ quality: 84 }).toBuffer();
+	if (!res.ok) throw new Error(`HTTP ${res.status}`);
+	return Buffer.from(await res.arrayBuffer());
 }
 
-async function removeLegacyImages() {
+async function composeHackImage(baseBuffer, overlayPreset) {
+	const base = sharp(baseBuffer).resize({ width: 1920, withoutEnlargement: true });
+	const meta = await base.metadata();
+	const width = meta.width ?? 1920;
+	const height = meta.height ?? 1080;
+
+	const overlaySvg = Buffer.from(buildOverlaySvg(width, height, overlayPreset));
+	const darkened = await base.modulate({ brightness: 0.92, saturation: 1.08 }).toBuffer();
+
+	return sharp(darkened)
+		.composite([{ input: overlaySvg, top: 0, left: 0 }])
+		.webp({ quality: 86 })
+		.toBuffer();
+}
+
+async function cleanImagesDir() {
 	const files = await readdir(imagesDir).catch(() => []);
 	for (const file of files) {
-		if (LEGACY_PATTERNS.some((pattern) => pattern.test(file))) {
+		if (file.includes('fortnite-cheats-logo')) continue;
+		if (REMOVE_PATTERNS.some((pattern) => pattern.test(file))) {
 			await unlink(path.join(imagesDir, file));
-			console.log(`Removed legacy ${file}`);
+			console.log(`Removed ${file}`);
 		}
 	}
 }
 
 async function generateBrandAssets(heroBuffer) {
 	const logoBuffer = await sharp(heroBuffer)
-		.extract({ left: 420, top: 180, width: 520, height: 520 })
+		.reboot({ left: 420, top: 180, width: 520, height: 520 })
 		.resize(512, 512, { fit: 'cover' })
 		.webp({ quality: 88 })
 		.toBuffer();
 
-	await writeFile(path.join(imagesDir, 'escape-from-tarkov-cheats-logo.webp'), logoBuffer);
+	await writeFile(path.join(imagesDir, 'fortnite-cheats-logo.webp'), logoBuffer);
 
-	const iconSizes = [
+	for (const { name, size } of [
 		{ name: 'favicon-16x16.png', size: 16 },
 		{ name: 'favicon-32x32.png', size: 32 },
 		{ name: 'apple-touch-icon.png', size: 180 },
 		{ name: 'favicon.png', size: 192 },
-	];
-
-	for (const { name, size } of iconSizes) {
-		const png = await sharp(logoBuffer).resize(size, size).png().toBuffer();
-		await writeFile(path.join(publicDir, name), png);
+	]) {
+		await writeFile(path.join(publicDir, name), await sharp(logoBuffer).resize(size, size).png().toBuffer());
 	}
-
-	const faviconIco = await sharp(logoBuffer).resize(32, 32).png().toBuffer();
-	await writeFile(path.join(publicDir, 'favicon.ico'), faviconIco);
+	await writeFile(path.join(publicDir, 'favicon.ico'), await sharp(logoBuffer).resize(32, 32).png().toBuffer());
 }
 
 await mkdir(imagesDir, { recursive: true });
-await removeLegacyImages();
+await cleanImagesDir();
 
 let heroBuffer = null;
+let saved = 0;
 
 for (const asset of KEYWORD_ASSETS) {
-	console.log(`Fetching ${asset.file}`);
+	console.log(`Fetching ${asset.file} (${asset.overlay} overlay)`);
 	try {
-		const webp = await fetchWebp(asset.url);
-		const dest = path.join(imagesDir, asset.file);
-		await writeFile(dest, webp);
-		console.log(`Saved ${asset.file} (${webp.length} bytes)`);
-		if (asset.file === 'escape-from-tarkov-cheats-hero.webp') heroBuffer = webp;
+		const base = await fetchBase(asset.url);
+		const webp = await composeHackImage(base, asset.overlay);
+		await writeFile(path.join(imagesDir, asset.file), webp);
+		console.log(`  ✓ ${asset.file} (${webp.length} bytes)`);
+		saved++;
+		if (asset.file === 'fortnite-cheats-hero.webp') heroBuffer = webp;
 	} catch (err) {
-		console.warn(`Skip ${asset.file}: ${err.message}`);
+		console.warn(`  ✗ Skip ${asset.file}: ${err.message}`);
 	}
 }
 
 if (heroBuffer) {
 	await generateBrandAssets(heroBuffer);
-	console.log('Generated keyword logo + favicons from hero art.');
+	console.log('Generated logo + favicons from hero.');
 }
 
-console.log(`Done — attempted ${KEYWORD_ASSETS.length} keyword-named Escape from Tarkov images.`);
+console.log(`\nDone — ${saved}/${KEYWORD_ASSETS.length} Fortnite cheats images (IGN base + ESP/aimbot overlays).`);

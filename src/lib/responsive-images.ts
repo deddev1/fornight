@@ -37,13 +37,13 @@ export function contentSrcSet(baseSrc: string): string | undefined {
  * Prefer the PNG master (no lossy compression). WebP is lossless fallback only.
  */
 export const heroResponsive: ResponsiveWidth[] = [
-	{ src: '/images/tarkov-cheats-hero-full.png', width: 1024 },
+	{ src: '/images/fortnite-cheats-hero-full.png', width: 1024 },
 ];
 
 export const heroDesktopResponsive: ResponsiveWidth[] = heroResponsive;
 
 /** Uncompressed PNG master — do not point this at a lossy webp. */
-export const heroSrc = '/images/tarkov-cheats-hero-full.png';
+export const heroSrc = '/images/fortnite-cheats-hero-full.png';
 export const heroSrcSet = `${heroSrc} 1024w`;
 export const heroSizes = '100vw';
 

@@ -5,7 +5,7 @@ import { getLocalizedPath, localizeInternalHref } from '../data/i18n/routing';
 import type { LocaleCode } from '../data/i18n/locales';
 import { productInfo, seoFaqs, siteConfig } from '../data/site';
 import { absoluteFaqUrl, getFaqPath } from '../data/faq';
-import { tarkovImages } from '../data/tarkov';
+import { fortniteImages } from '../data/fortnite';
 import { simplePageCopy } from '../data/i18n/simple-pages';
 
 interface Props {
@@ -42,7 +42,7 @@ const introEditByPage: Partial<Record<PageId, string>> = {
 	faq: 'faqIntro',
 };
 const introEdit = locale === 'en' ? introEditByPage[pageId] : undefined;
-const gallery = tarkovImages.product.slice(0, 3).map((img) => ({
+const gallery = fortniteImages.product.slice(0, 3).map((img) => ({
 	src: img.src,
 	alt: img.alt,
 }));
@@ -77,8 +77,8 @@ const eyebrowByPage: Partial<Record<PageId, string>> = {
 	pricing: ui.nav.pricing,
 	updates: ui.nav.updates,
 	hacks: ui.nav.hacks,
-	'tarkov-esp': ui.nav.esp,
-	'tarkov-aimbot': ui.nav.aimbot,
+	'fortnite-esp': ui.nav.esp,
+	'fortnite-aimbot': ui.nav.aimbot,
 	setup: ui.nav.setup,
 	faq: ui.nav.faq,
 };
@@ -92,7 +92,7 @@ const eyebrowByPage: Partial<Record<PageId, string>> = {
 	intro={intro}
 	introEdit={introEdit}
 	eyebrow={eyebrowByPage[pageId]}
-	heroImage={siteConfig.heroImage || tarkovImages.hero}
+	heroImage={siteConfig.heroImage || fortniteImages.hero}
 	heroAlt={siteConfig.name}
 	gallery={gallery}
 	galleryTitle={galleryTitle}

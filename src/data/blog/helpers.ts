@@ -1,5 +1,5 @@
 import { siteConfig } from '../site';
-import { tarkovImages } from '../tarkov';
+import { fortniteImages } from '../fortnite';
 import { blogSitemapImageMeta } from '../brand-sitemap';
 import {
 	defaultLocale,
@@ -12,16 +12,16 @@ import type { BlogImageKey, BlogPostDefinition, BlogTranslation, ResolvedBlogPos
 import { blogPosts as rawBlogPosts } from './posts.generated';
 
 const imageMap: Record<BlogImageKey, string> = {
-	hero: tarkovImages.espWallhack,
-	espWallhack: tarkovImages.espWallhack,
-	aimbotCombat: tarkovImages.aimbotCombat,
-	squadFight: tarkovImages.aimbotCombat,
-	headerArt: tarkovImages.playerEsp,
-	cheatsPackage: tarkovImages.espWallhack,
-	playerEsp: tarkovImages.playerEsp,
-	rebootFight: tarkovImages.aimbotCombat,
-	battleRoyaleCombat: tarkovImages.cheatsCombat,
-	battleRoyaleIslandMap: tarkovImages.espWallhack,
+	hero: fortniteImages.espWallhack,
+	espWallhack: fortniteImages.espWallhack,
+	aimbotCombat: fortniteImages.aimbotCombat,
+	squadFight: fortniteImages.aimbotCombat,
+	headerArt: fortniteImages.playerEsp,
+	cheatsPackage: fortniteImages.espWallhack,
+	playerEsp: fortniteImages.playerEsp,
+	rebootFight: fortniteImages.aimbotCombat,
+	battleRoyaleCombat: fortniteImages.cheatsCombat,
+	battleRoyaleIslandMap: fortniteImages.espWallhack,
 };
 
 function expandTranslations(
@@ -205,7 +205,7 @@ export function getBlogSitemapEntriesForLocale(locale: LocaleCode) {
 	for (const post of blogPosts) {
 		const t = post.translations[locale];
 		const imageSrc = getBlogImageSrc(post.imageKey);
-		const isProductPost = /Tarkov Cheats|Tarkov Cheats|Aimbot|ESP|Undetected|Comparisons/i.test(
+		const isProductPost = /Fortnite Cheats|Fortnite Cheats|Aimbot|ESP|Undetected|Comparisons/i.test(
 			post.category,
 		);
 		entries.push({

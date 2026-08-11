@@ -5,28 +5,28 @@
  */
 export const brand = {
 	/** Public brand name (nav, footer, H1 hero, schema Organization) */
-	name: 'Tarkov Cheats',
+	name: 'Fortnite Cheats',
 	/** Short product label if needed */
-	shortName: 'Tarkov',
+	shortName: 'Fortnite',
 	/** Canonical origin — no trailing slash */
-	url: 'https://besttarkovcheats.com',
+	url: 'https://bestfortnitecheats.com',
 	locale: 'en',
 	market: 'Worldwide',
-	supportEmail: 'support@besttarkovcheats.com',
-	checkoutUrl: 'https://zadeyo.com/go/QRH?to=%2Fproducts%2Fescape-from-tarkov',
+	supportEmail: 'support@bestfortnitecheats.com',
+	checkoutUrl: 'https://zadeyo.com/go/QRH?to=%2Fproducts%2Ffortnite',
 
 	/** Game this template instance targets */
-	game: 'Escape from Tarkov',
+	game: 'Fortnite',
 	/** Anti-cheat name used in Status / FAQ copy */
-	antiCheat: 'BattlEye',
+	antiCheat: 'Easy Anti-Cheat',
 
-	logo: '/images/tarkov-cheats-logo.webp',
-	logoRaster: '/images/tarkov-cheats-logo.png',
+	logo: '/images/fortnite-cheats-logo.webp',
+	logoRaster: '/images/fortnite-cheats-logo.png',
 	logoRasterWidth: 512,
 	logoRasterHeight: 512,
-	logoAlt: 'tarkov cheats logo',
-	defaultOgImage: '/images/tarkov-cheats-hero-full.png',
-	heroImage: '/images/tarkov-cheats-hero-full.png',
+	logoAlt: 'fortnite cheats logo',
+	defaultOgImage: '/images/fortnite-cheats-hero-full.png',
+	heroImage: '/images/fortnite-cheats-hero-full.png',
 
 	plans: [
 		{ id: 'monthly', label: 'Monthly', price: 35, duration: 'P30D' },
@@ -53,16 +53,16 @@ export const brand = {
 	 * Keep 5–8 terms.
 	 */
 	keywords: {
-		primary: 'tarkov cheats',
+		primary: 'fortnite cheats',
 		list: [
-			'tarkov cheats',
-			'escape from tarkov cheats',
-			'tarkov esp',
-			'tarkov aimbot',
-			'tarkov wallhack',
-			'tarkov hacks',
-			'undetected tarkov cheats',
-			'best tarkov cheats',
+			'fortnite cheats',
+			'fortnite aimbot',
+			'fortnite esp',
+			'fortnite wallhack',
+			'fortnite hacks',
+			'undetected fortnite cheats',
+			'best fortnite cheats',
+			'fortnite cheat download',
 		] as const,
 	},
 
@@ -71,16 +71,16 @@ export const brand = {
 	 * Aim ~50–60 chars titles, ~140–160 chars descriptions.
 	 */
 	seo: {
-		homeTitle: 'Tarkov Cheats | Undetected EFT ESP & Aimbot',
-		homeDescription: 'Buy undetected Escape from Tarkov cheats for Windows PC. ESP, soft aim, and BattlEye updates in one license.',
+		homeTitle: 'Fortnite Cheats | Undetected ESP & Aimbot',
+		homeDescription: 'Buy undetected Fortnite cheats for Windows PC. ESP, soft aim, and EAC updates in one license.',
 		featuresTitle: '{game} Features | {brand}',
 		featuresDescription: 'Everything in one {game} license for Windows PC — ESP, aimbot, Cheats, and patch updates.',
 		storeTitle: '{game} Store | {brand}',
 		storeDescription: 'Monthly and lifetime {game} plans. Same features. Instant delivery after payment.',
 		statusTitle: '{game} Status | {brand}',
-		statusDescription: 'Live status for {brand} after {game} or {antiCheat} patches. Check before you raid.',
+		statusDescription: 'Live status for {brand} after {game} or {antiCheat} patches. Check before you queue.',
 		previewTitle: '{game} Preview | {brand}',
-		previewDescription: 'Quick preview of {brand} — ESP, aimbot, extraction tracking, and updates after {game} patches.',
+		previewDescription: 'Quick preview of {brand} — ESP, aimbot, zone tracking, and updates after {game} patches.',
 		setupTitle: '{game} Setup | {brand}',
 		setupDescription: 'Install and launch {brand} on Windows PC. Short setup steps after you buy.',
 		supportTitle: '{game} Support | {brand}',
@@ -88,22 +88,22 @@ export const brand = {
 		faqTitle: '{game} FAQ | {brand}',
 		faqDescription: 'Short answers about {brand} — delivery, setup, updates, and refunds.',
 		reviewsTitle: '{brand} Reviews | Buyer Feedback',
-		reviewsDescription: 'Real buyer reviews for {brand} — ESP, soft aim, extraction tracking, and patch updates on Windows PC.',
+		reviewsDescription: 'Real buyer reviews for {brand} — ESP, soft aim, zone tracking, and patch updates on Windows PC.',
 		blogTitle: '{game} Intel | {brand}',
-		blogDescription: 'Guides and notes for {game} — raid tips, ESP, aimbot, and {antiCheat} updates.',
+		blogDescription: 'Guides and notes for {game} — match tips, ESP, aimbot, and {antiCheat} updates.',
 	},
 
 	/** On-page marketing copy (tokens allowed) */
 	copy: {
-		tagline: 'Undetected {primaryKeyword} — ESP, aimbot, and Hacks or PC',
-		summary: '{brand} is an undetected {game} cheat package for Windows PC. Includes ESP, soft aim, and extraction tracking, with {antiCheat} maintenance after patches.',
-		heroLede: 'Cheats available — ESP, Aimbot & ESP for Escape from Tarkov.',
-		blogLabel: 'Tarkov Intel',
+		tagline: 'Undetected {primaryKeyword} — ESP, aimbot, and radar for PC',
+		summary: '{brand} is an undetected {game} cheat package for Windows PC. Includes ESP, soft aim, and zone tracking, with {antiCheat} maintenance after patches.',
+		heroLede: 'Cheats available — ESP, Aimbot & radar for Fortnite.',
+		blogLabel: 'Fortnite Intel',
 		ctaBuy: 'Get Access',
 		ctaBuyShort: 'Buy',
 		featuresIntro: 'Everything included in one license for {game} on Windows PC.',
 		storeIntro: 'Pick a plan. Same features on both. Instant delivery after payment.',
-		statusIntro: 'Check here after a {game} or {antiCheat} patch before you raid.',
+		statusIntro: 'Check here after a {game} or {antiCheat} patch before you queue.',
 		previewIntro: 'A quick look at {brand} — ESP, aimbot, radar, and updates after patches.',
 		setupIntro: 'Install {brand} on Windows PC after you buy. Follow these short steps.',
 		supportIntro: 'Need help with {brand}? Email {email} with your order ID.',
@@ -134,34 +134,34 @@ export const brand = {
 		reviewsImageCaption: 'What buyers say about {primaryKeyword}',
 		images: [
 			{
-				src: '/images/tarkov-cheats-esp.webp',
-				title: 'tarkov cheats esp',
-				caption: 'tarkov cheats esp wallhack overlay',
+				src: '/images/fortnite-cheats-esp.webp',
+				title: 'fortnite cheats esp',
+				caption: 'fortnite cheats esp wallhack overlay',
 			},
 			{
-				src: '/images/tarkov-cheats-wallhack.webp',
-				title: 'tarkov cheats wallhack',
-				caption: 'tarkov cheats wallhack for raids',
+				src: '/images/fortnite-cheats-wallhack.webp',
+				title: 'fortnite cheats wallhack',
+				caption: 'fortnite cheats wallhack for matches',
 			},
 			{
-				src: '/images/tarkov-cheats-aimbot.webp',
-				title: 'tarkov cheats aimbot',
-				caption: 'tarkov cheats aimbot soft aim',
+				src: '/images/fortnite-cheats-aimbot.webp',
+				title: 'fortnite cheats aimbot',
+				caption: 'fortnite cheats aimbot soft aim',
 			},
 			{
-				src: '/images/tarkov-cheats-aimbot-view.webp',
-				title: 'tarkov cheats features',
-				caption: 'tarkov cheats features aimbot view',
+				src: '/images/fortnite-cheats-aimbot-view.webp',
+				title: 'fortnite cheats features',
+				caption: 'fortnite cheats features aimbot view',
 			},
 			{
-				src: '/images/tarkov-cheats-radar.webp',
-				title: 'tarkov cheats status',
-				caption: 'tarkov cheats radar after patch updates',
+				src: '/images/fortnite-cheats-radar.webp',
+				title: 'fortnite cheats status',
+				caption: 'fortnite cheats radar after patch updates',
 			},
 			{
-				src: '/images/tarkov-cheats-raid.webp',
-				title: 'tarkov cheats store',
-				caption: 'tarkov cheats plans for Windows PC',
+				src: '/images/fortnite-cheats-raid.webp',
+				title: 'fortnite cheats store',
+				caption: 'fortnite cheats plans for Windows PC',
 			},
 		],
 	},

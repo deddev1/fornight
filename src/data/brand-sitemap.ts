@@ -13,42 +13,42 @@ export type BrandSitemapImage = {
 
 const defaultImages: BrandSitemapImage[] = [
 	{
-		src: '/images/tarkov-cheats-esp.webp',
-		title: 'tarkov cheats esp',
-		caption: 'tarkov cheats esp wallhack',
+		src: '/images/fortnite-cheats-esp.webp',
+		title: 'fortnite cheats esp',
+		caption: 'fortnite cheats esp wallhack',
 	},
 	{
-		src: '/images/tarkov-cheats-wallhack.webp',
-		title: 'tarkov cheats wallhack',
-		caption: 'tarkov cheats wallhack esp',
+		src: '/images/fortnite-cheats-wallhack.webp',
+		title: 'fortnite cheats wallhack',
+		caption: 'fortnite cheats wallhack esp',
 	},
 	{
-		src: '/images/tarkov-cheats-aimbot.webp',
-		title: 'tarkov cheats aimbot',
-		caption: 'tarkov cheats aimbot soft aim',
+		src: '/images/fortnite-cheats-aimbot.webp',
+		title: 'fortnite cheats aimbot',
+		caption: 'fortnite cheats aimbot soft aim',
 	},
 	{
-		src: '/images/tarkov-cheats-aimbot-view.webp',
-		title: 'tarkov cheats aimbot',
-		caption: 'tarkov cheats aimbot view',
+		src: '/images/fortnite-cheats-aimbot-view.webp',
+		title: 'fortnite cheats aimbot',
+		caption: 'fortnite cheats aimbot view',
 	},
 	{
-		src: '/images/tarkov-cheats-radar.webp',
-		title: 'tarkov cheats radar',
-		caption: 'tarkov cheats radar hack',
+		src: '/images/fortnite-cheats-radar.webp',
+		title: 'fortnite cheats radar',
+		caption: 'fortnite cheats radar hack',
 	},
 	{
-		src: '/images/tarkov-cheats-raid.webp',
-		title: 'tarkov cheats',
-		caption: 'tarkov cheats in raid',
+		src: '/images/fortnite-cheats-raid.webp',
+		title: 'fortnite cheats',
+		caption: 'fortnite cheats in raid',
 	},
 ];
 
 /** Per-page image title/caption templates for the English urlset. */
 const pageImageTemplates: Record<PageId, { title: string; caption: string }> = {
-	home: { title: '{primaryKeyword}', caption: 'ESP, aimbot, and radar for Tarkov on PC' },
-	'tarkov-esp': { title: '{primaryKeyword} ESP', caption: 'See players through walls with {primaryKeyword}' },
-	'tarkov-aimbot': { title: '{primaryKeyword} aimbot', caption: 'Aimbot view in {primaryKeyword}' },
+	home: { title: '{primaryKeyword}', caption: 'ESP, aimbot, and radar for Fortnite on PC' },
+	'fortnite-esp': { title: '{primaryKeyword} ESP', caption: 'See players through walls with {primaryKeyword}' },
+	'fortnite-aimbot': { title: '{primaryKeyword} aimbot', caption: 'Aimbot view in {primaryKeyword}' },
 	features: { title: '{primaryKeyword} features', caption: 'What you get with {primaryKeyword}' },
 	pricing: { title: '{primaryKeyword} plans', caption: 'Monthly and lifetime {primaryKeyword} plans' },
 	setup: { title: '{primaryKeyword} setup', caption: 'How to set up {primaryKeyword} on PC' },
@@ -58,7 +58,7 @@ const pageImageTemplates: Record<PageId, { title: string; caption: string }> = {
 	undetected: { title: 'Undetected {primaryKeyword}', caption: 'Safe status notes for {primaryKeyword}' },
 	wallhack: { title: '{primaryKeyword} wallhack', caption: 'See through walls with {primaryKeyword}' },
 	radar: { title: '{primaryKeyword} radar', caption: 'Radar map in {primaryKeyword}' },
-	battleye: { title: '{antiCheat} and {primaryKeyword}', caption: '{primaryKeyword} after a BattlEye update' },
+	'eac-bypass': { title: '{antiCheat} and {primaryKeyword}', caption: '{primaryKeyword} after an EAC update' },
 	'cheats-2026': { title: '{primaryKeyword} 2026', caption: '{primaryKeyword} buyer guide for 2026' },
 	hacks: { title: '{primaryKeyword}', caption: '{primaryKeyword} ESP, aimbot, and radar' },
 	'cheat-download': { title: '{primaryKeyword} download', caption: 'Get {primaryKeyword} after you buy' },

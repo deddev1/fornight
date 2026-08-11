@@ -67,70 +67,70 @@ const SITEMAP_INDEX_ENTRIES = 1 + I18N_LOCALES + 1; // EN + locales + images
 
 const ENGLISH_PATHS = [
 	'/',
-	'/tarkov-esp/',
-	'/tarkov-aimbot/',
+	'/fortnite-esp/',
+	'/fortnite-aimbot/',
 	'/features/',
 	'/pricing/',
 	'/setup/',
 	'/updates/',
 	'/faq/',
 	'/support/',
-	'/undetected-tarkov-cheats/',
-	'/tarkov-wallhack/',
-	'/tarkov-radar-hack/',
-	'/battleye-bypass/',
-	'/tarkov-cheats-2026/',
-	'/tarkov-cheats/',
-	'/tarkov-cheat-download/',
-	'/tarkov-mod-menu/',
-	'/tarkov-soft-aim/',
-	'/best-tarkov-cheats/',
-	'/tarkov-aimbot-hack/',
-	'/tarkov-esp-hack/',
-	'/tarkov-unlock-all/',
+	'/undetected-fortnite-cheats/',
+	'/fortnite-wallhack/',
+	'/fortnite-radar-hack/',
+	'/eac-bypass/',
+	'/fortnite-cheats-2026/',
+	'/fortnite-cheats/',
+	'/fortnite-cheat-download/',
+	'/fortnite-mod-menu/',
+	'/fortnite-soft-aim/',
+	'/best-fortnite-cheats/',
+	'/fortnite-aimbot-hack/',
+	'/fortnite-esp-hack/',
+	'/fortnite-unlock-all/',
 	'/privacy-policy/',
 	'/refund-policy/',
 	'/terms/',
 	'/blog/',
-	'/blog/tarkov-scav-run-aggressive-strategies/',
-	'/blog/tarkov-loot-routes-guide/',
-	'/blog/tarkov-weapon-tier-list/',
-	'/blog/tarkov-skin-leaks-guide/',
-	'/blog/tarkov-tournament-meta-guide/',
-	'/blog/tarkov-pro-settings-guide/',
-	'/blog/tarkov-warmup-maps-ranked/',
-	'/blog/tarkov-patch-notes-guide/',
-	'/blog/tarkov-cheats-complete-guide-2026/',
-	'/blog/escape-from-tarkov-cheats-buyers-guide/',
-	'/blog/tarkov-cheats-2026-whats-new/',
-	'/blog/tarkov-aimbot-settings-guide/',
-	'/blog/tarkov-esp-wallhack-explained/',
-	'/blog/undetected-tarkov-cheats-battleye/',
-	'/blog/tarkov-cheats-vs-cheatvault-comparison/',
-	'/blog/elitefn-vs-tarkov-cheats-two-week-test/',
-	'/blog/tarkov-cheats-vs-ghostware-features-pricing/',
+	'/blog/fortnite-zero-build-aggressive-strategies/',
+	'/blog/fortnite-loot-routes-guide/',
+	'/blog/fortnite-weapon-tier-list/',
+	'/blog/fortnite-skin-leaks-guide/',
+	'/blog/fortnite-tournament-meta-guide/',
+	'/blog/fortnite-pro-settings-guide/',
+	'/blog/fortnite-warmup-maps-ranked/',
+	'/blog/fortnite-patch-notes-guide/',
+	'/blog/fortnite-cheats-complete-guide-2026/',
+	'/blog/escape-from-fortnite-cheats-buyers-guide/',
+	'/blog/fortnite-cheats-2026-whats-new/',
+	'/blog/fortnite-aimbot-settings-guide/',
+	'/blog/fortnite-esp-wallhack-explained/',
+	'/blog/undetected-fortnite-cheats-eac/',
+	'/blog/fortnite-cheats-vs-cheatvault-comparison/',
+	'/blog/elitefn-vs-fortnite-cheats-two-week-test/',
+	'/blog/fortnite-cheats-vs-ghostware-features-pricing/',
 	'/reviews/',
-	'/reviews/tarkov-soft-aim-review-xkrypt0/',
-	'/reviews/tarkov-esp-scav-run-review-buildsr4k/',
-	'/reviews/tarkov-cloud-dma-review-dma-wizard/',
-	'/reviews/tarkov-controller-soft-aim-review-ctrl-player99/',
-	'/reviews/tarkov-cheat-setup-review-stormchaser07/',
-	'/reviews/tarkov-loot-esp-review-lootgoblinx/',
-	'/reviews/tarkov-soft-aim-raid-review-rankedgrind42/',
-	'/reviews/tarkov-radar-hack-review-vanlifeeft/',
-	'/reviews/tarkov-battleye-update-review-patchdaymike/',
-	'/reviews/tarkov-sniper-soft-aim-review-snipezonly/',
-	'/faq/what-are-tarkov-cheats/',
-	'/faq/are-tarkov-cheats-undetected-in-2026/',
-	'/faq/pmc-raids-and-scav-runs/',
+	'/reviews/fortnite-soft-aim-review-xkrypt0/',
+	'/reviews/fortnite-esp-zero-build-review-buildsr4k/',
+	'/reviews/fortnite-cloud-dma-review-dma-wizard/',
+	'/reviews/fortnite-controller-soft-aim-review-ctrl-player99/',
+	'/reviews/fortnite-cheat-setup-review-stormchaser07/',
+	'/reviews/fortnite-loot-esp-review-lootgoblinx/',
+	'/reviews/fortnite-soft-aim-raid-review-rankedgrind42/',
+	'/reviews/fortnite-radar-hack-review-vanlifeeft/',
+	'/reviews/fortnite-eac-update-review-patchdaymike/',
+	'/reviews/fortnite-sniper-soft-aim-review-snipezonly/',
+	'/faq/what-are-fortnite-cheats/',
+	'/faq/are-fortnite-cheats-undetected-in-2026/',
+	'/faq/battle-royale-and-zero-build/',
 	'/faq/esp-wallhack-radar-or-aimbot/',
 	'/faq/how-are-licenses-delivered/',
 	'/faq/where-to-check-updates/',
 	'/faq/how-to-contact-support/',
-	'/faq/what-is-a-tarkov-wallhack/',
-	'/faq/does-tarkov-cheats-include-radar-hack/',
-	'/faq/battleye-anti-cheat-and-tarkov-cheats/',
-	'/faq/buy-undetected-tarkov-cheats-windows-pc/',
+	'/faq/what-is-a-fortnite-wallhack/',
+	'/faq/does-fortnite-cheats-include-radar-hack/',
+	'/faq/eac-anti-cheat-and-fortnite-cheats/',
+	'/faq/buy-undetected-fortnite-cheats-windows-pc/',
 ];
 
 const LOCALE_CODES = [
@@ -140,11 +140,11 @@ const LOCALE_CODES = [
 
 const I18N_LOCALE_CODES = LOCALE_CODES.filter((code) => code !== 'en');
 
-function extractLocs(xml) {
+function rebootLocs(xml) {
 	return [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
 }
 
-function extractHreflangCount(xml, url) {
+function rebootHreflangCount(xml, url) {
 	const block = xml.split('<loc>').find((part) => part.startsWith(url.replace(/&/g, '&amp;')));
 	if (!block) return 0;
 	return (block.match(/hreflang="/g) ?? []).length;
@@ -193,10 +193,10 @@ async function main() {
 	const robots = await readFile(path.join(ROOT, 'public', 'robots.txt'), 'utf8');
 	const redirects = await readFile(path.join(ROOT, 'public', '_redirects'), 'utf8');
 
-	const indexLocs = extractLocs(sitemapIndex);
-	const enLocs = extractLocs(sitemapEn);
-	const i18nLocs = extractLocs(sitemapI18n);
-	const imageLocs = extractLocs(sitemapImages);
+	const indexLocs = rebootLocs(sitemapIndex);
+	const enLocs = rebootLocs(sitemapEn);
+	const i18nLocs = rebootLocs(sitemapI18n);
+	const imageLocs = rebootLocs(sitemapImages);
 
 	// sitemap.xml must be a sitemap index (not a urlset)
 	if (!sitemapIndex.includes('<sitemapindex')) {
@@ -224,7 +224,7 @@ async function main() {
 	for (const locale of I18N_LOCALE_CODES) {
 		const file = path.join(DIST, `sitemap-${locale}.xml`);
 		const xml = await readFile(file, 'utf8');
-		const locs = extractLocs(xml);
+		const locs = rebootLocs(xml);
 		localeSitemapLocs[locale] = locs;
 		localeUrlTotal += locs.length;
 
@@ -341,7 +341,7 @@ async function main() {
 	if (errors === 0) ok('All sitemap URLs use HTTPS apex with trailing slashes');
 
 	// hreflang on homepage
-	const homeHreflang = extractHreflangCount(sitemapEn, `${SITE}/`);
+	const homeHreflang = rebootHreflangCount(sitemapEn, `${SITE}/`);
 	if (homeHreflang !== HREFLANG_PER_URL) {
 		fail(`Homepage hreflang links: expected ${HREFLANG_PER_URL}, got ${homeHreflang}`);
 		bump();

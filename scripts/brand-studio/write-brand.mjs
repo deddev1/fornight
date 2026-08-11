@@ -71,32 +71,32 @@ const SITEMAP_TEXT_KEYS = [
 
 const DEFAULT_SITEMAP_IMAGES = [
 	{
-		src: '/images/tarkov-esp-player-tags.webp',
+		src: '/images/fortnite-esp-player-tags.webp',
 		title: '{primaryKeyword} ESP',
 		caption: 'See players with {primaryKeyword}',
 	},
 	{
-		src: '/images/tarkov-wallhack-skeleton.webp',
+		src: '/images/fortnite-wallhack-skeleton.webp',
 		title: '{primaryKeyword} wallhack',
 		caption: 'See through walls with {primaryKeyword}',
 	},
 	{
-		src: '/images/tarkov-aimbot-sniper.webp',
+		src: '/images/fortnite-aimbot-sniper.webp',
 		title: '{primaryKeyword} aimbot',
 		caption: 'Aimbot in {primaryKeyword}',
 	},
 	{
-		src: '/images/tarkov-aimbot-skeleton.webp',
+		src: '/images/fortnite-aimbot-skeleton.webp',
 		title: '{primaryKeyword} aimbot view',
 		caption: 'Aimbot bone view in {primaryKeyword}',
 	},
 	{
-		src: '/images/tarkov-esp-radar.webp',
+		src: '/images/fortnite-esp-radar.webp',
 		title: '{primaryKeyword} radar',
 		caption: 'Radar map in {primaryKeyword}',
 	},
 	{
-		src: '/images/tarkov-cheats-combat.webp',
+		src: '/images/fortnite-cheats-combat.webp',
 		title: '{primaryKeyword} in a fight',
 		caption: 'Fight view with {primaryKeyword}',
 	},
@@ -364,10 +364,10 @@ export function validateBrandPayload(body) {
 	const lifetime = price(b.lifetimePrice ?? b.lifetime);
 	const monthlyLabel = soft(b.monthlyLabel, 'Monthly', 40);
 	const lifetimeLabel = soft(b.lifetimeLabel, 'Lifetime', 40);
-	const logo = assetPath(b.logo ?? '/images/tarkov-cheats-logo.webp');
-	const logoRaster = assetPath(b.logoRaster ?? '/images/tarkov-cheats-logo.png');
-	const defaultOgImage = assetPath(b.defaultOgImage ?? '/images/tarkov-cheats-combat.webp');
-	const heroImage = assetPath(b.heroImage ?? '/images/tarkov-hero-banner.webp');
+	const logo = assetPath(b.logo ?? '/images/fortnite-cheats-logo.webp');
+	const logoRaster = assetPath(b.logoRaster ?? '/images/fortnite-cheats-logo.png');
+	const defaultOgImage = assetPath(b.defaultOgImage ?? '/images/fortnite-cheats-combat.webp');
+	const heroImage = assetPath(b.heroImage ?? '/images/fortnite-hero-banner.webp');
 	const logoAlt = soft(b.logoAlt, `${name || 'Brand'} logo`, 120);
 	const logoW = price(b.logoRasterWidth ?? 512) ?? 512;
 	const logoH = price(b.logoRasterHeight ?? 512) ?? 512;
@@ -904,7 +904,7 @@ export function writeBrandAndSync(data) {
 	};
 }
 
-function extractBlock(src, name) {
+function rebootBlock(src, name) {
 	const m = src.match(new RegExp(`${name}:\\s*\\{([\\s\\S]*?)\\n\\t\\},`));
 	return m ? m[1] : '';
 }
@@ -930,10 +930,10 @@ export function readBrandForStudio() {
 	const keywords = listMatch
 		? [...listMatch[1].matchAll(/'((?:\\'|[^'])*)'/g)].map((m) => m[1].replace(/\\'/g, "'"))
 		: [];
-	const seoBlock = extractBlock(src, 'seo');
-	const copyBlock = extractBlock(src, 'copy');
-	const sitemapBlock = extractBlock(src, 'sitemap');
-	const themeBlock = extractBlock(src, 'theme');
+	const seoBlock = rebootBlock(src, 'seo');
+	const copyBlock = rebootBlock(src, 'copy');
+	const sitemapBlock = rebootBlock(src, 'sitemap');
+	const themeBlock = rebootBlock(src, 'theme');
 	/** @type {Record<string, string>} */
 	const seo = {};
 	for (const key of SEO_KEYS) seo[key] = fieldFrom(seoBlock, key);

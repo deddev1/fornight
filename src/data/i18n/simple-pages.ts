@@ -50,7 +50,7 @@ export const simplePageCopy: Partial<Record<PageId, SimplePageCopy>> = {
 			{
 				h2: 'ESP & wallhack',
 				paragraphs: ['See players, loot, and vehicles through walls.'],
-				list: ['Player boxes & distance', 'Loot and extract markers', 'Team colours on / off'],
+				list: ['Player boxes & distance', 'Loot and reboot markers', 'Team colours on / off'],
 			},
 			{
 				h2: 'Aimbot & soft aim',
@@ -60,7 +60,7 @@ export const simplePageCopy: Partial<Record<PageId, SimplePageCopy>> = {
 			{
 				h2: 'Radar',
 				paragraphs: ['A simple 2D radar for threats outside your view.'],
-				list: ['Nearby enemy cues', 'Adjustable range', 'Works in PMC & Scav'],
+				list: ['Nearby enemy cues', 'Adjustable range', 'Works in BR & Zero Build'],
 			},
 			{
 				h2: 'Updates & support',
@@ -102,7 +102,7 @@ export const simplePageCopy: Partial<Record<PageId, SimplePageCopy>> = {
 		intro: brandCopy.statusIntro,
 		ctaPrimary: brandCopy.ctaBuy,
 		ctaSecondary: 'Undetected guide',
-		ctaSecondaryHref: '/undetected-tarkov-cheats/',
+		ctaSecondaryHref: '/undetected-fortnite-cheats/',
 		galleryTitle: 'In-game look',
 		sections: [
 			{
