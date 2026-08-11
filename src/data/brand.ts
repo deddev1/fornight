@@ -148,7 +148,7 @@ export const brand = {
 	 */
 	sitemap: {
 		/** YYYY-MM-DD — Brand Studio can bump this on save to refresh crawl dates */
-		contentLastmod: '2026-08-11',
+		contentLastmod: '2026-08-12',
 		blogImageTitle: '{brand} blog',
 		blogImageCaption: 'Tips and updates for {primaryKeyword}',
 		reviewsImageTitle: '{brand} reviews',
@@ -160,29 +160,94 @@ export const brand = {
 				caption: 'fortnite aimbot hero banner for Windows PC',
 			},
 			{
-				src: '/images/fortnite-cheats-wallhack.webp',
+				src: '/images/fortnite-aimbot-sniper-esp.png',
+				title: 'fortnite aimbot ESP',
+				caption: 'fortnite aimbot sniper ESP skeleton overlay',
+			},
+			{
+				src: '/images/fortnite-cheats-esp-wallhack.png',
 				title: 'fortnite cheats wallhack',
-				caption: 'fortnite cheats wallhack for matches',
+				caption: 'fortnite cheats ESP wallhack through walls',
 			},
 			{
-				src: '/images/fortnite-cheats-aimbot.webp',
-				title: 'fortnite cheats aimbot',
-				caption: 'fortnite cheats aimbot soft aim',
+				src: '/images/fortnite-aimbot-tracers.png',
+				title: 'fortnite aimbot tracers',
+				caption: 'fortnite aimbot tracers and player boxes',
 			},
 			{
-				src: '/images/fortnite-cheats-aimbot-view.webp',
-				title: 'fortnite cheats features',
-				caption: 'fortnite cheats features aimbot view',
+				src: '/images/fortnite-cheats-combat-esp.png',
+				title: 'fortnite cheats combat ESP',
+				caption: 'fortnite cheats combat ESP player boxes',
 			},
 			{
-				src: '/images/fortnite-cheats-radar.webp',
-				title: 'fortnite cheats status',
-				caption: 'fortnite cheats radar after patch updates',
+				src: '/images/fortnite-cheats-lobby-esp.png',
+				title: 'fortnite cheats lobby ESP',
+				caption: 'fortnite cheats lobby ESP and player skins',
 			},
 			{
-				src: '/images/fortnite-cheats-raid.webp',
-				title: 'fortnite cheats store',
-				caption: 'fortnite cheats plans for Windows PC',
+				src: '/images/fortnite-cheats-weapon-loot-esp.png',
+				title: 'fortnite cheats loot ESP',
+				caption: 'fortnite cheats loot ESP weapon names',
+			},
+			{
+				src: '/images/fortnite-cheats-zero-build-esp.png',
+				title: 'fortnite cheats zero-build ESP',
+				caption: 'fortnite cheats ESP in zero-build fights',
+			},
+			{
+				src: '/images/fortnite-aimbot-scope-combat.png',
+				title: 'fortnite aimbot scope',
+				caption: 'fortnite aimbot scope ESP in combat',
+			},
+			{
+				src: '/images/fortnite-cheats-item-wallhack.png',
+				title: 'fortnite cheats item wallhack',
+				caption: 'fortnite cheats item wallhack through builds',
+			},
+			{
+				src: '/images/fortnite-aimbot-skeleton-box.png',
+				title: 'fortnite aimbot skeleton',
+				caption: 'fortnite aimbot skeleton box and weapon tag',
+			},
+			{
+				src: '/images/fortnite-cheats-warmup-esp.png',
+				title: 'fortnite cheats warmup ESP',
+				caption: 'fortnite cheats ESP boxes in warmup',
+			},
+			{
+				src: '/images/fortnite-cheats-esp-overlay.png',
+				title: 'fortnite cheats ESP overlay',
+				caption: 'fortnite cheats ESP overlay names and loot',
+			},
+			{
+				src: '/images/fortnite-cheats-bot-esp.png',
+				title: 'fortnite cheats bot ESP',
+				caption: 'fortnite cheats bot ESP and tracers',
+			},
+			{
+				src: '/images/fortnite-cheats-tracer-wave.png',
+				title: 'fortnite cheats tracer ESP',
+				caption: 'fortnite cheats tracer ESP through cover',
+			},
+			{
+				src: '/images/fortnite-aimbot-fov-settings.png',
+				title: 'fortnite aimbot FOV',
+				caption: 'fortnite aimbot FOV circle and ESP labels',
+			},
+			{
+				src: '/images/fortnite-cheats-wallhack-distance.png',
+				title: 'fortnite cheats wallhack distance',
+				caption: 'fortnite cheats wallhack with distance tags',
+			},
+			{
+				src: '/images/fortnite-cheats-build-esp.png',
+				title: 'fortnite cheats build ESP',
+				caption: 'fortnite cheats ESP in a build fight',
+			},
+			{
+				src: '/images/fortnite-aimbot-lock.png',
+				title: 'fortnite aimbot lock',
+				caption: 'fortnite aimbot lock-on with skeleton ESP',
 			},
 		],
 	},

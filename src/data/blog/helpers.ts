@@ -9,6 +9,7 @@ import {
 } from '../i18n/locales';
 import { resolvePageContextFromPath } from '../i18n/routing';
 import type { BlogImageKey, BlogPostDefinition, BlogTranslation, ResolvedBlogPost } from './types';
+import { blogImageByPostId } from './images';
 import { blogPosts as rawBlogPosts } from './posts.generated';
 
 const imageMap: Record<BlogImageKey, string> = {
@@ -35,12 +36,18 @@ function expandTranslations(
 	return full;
 }
 
-export const blogPosts: BlogPostDefinition[] = rawBlogPosts.map((post) => ({
-	...post,
-	translations: expandTranslations(post.translations as Partial<Record<LocaleCode, BlogTranslation>> & { en: BlogTranslation }),
-}));
+export const blogPosts: BlogPostDefinition[] = rawBlogPosts.map((post) => {
+	if (!blogImageByPostId[post.id]) {
+		throw new Error(`[blog] No Fortnite cheats image mapped for post id: ${post.id}`);
+	}
+	return {
+		...post,
+		translations: expandTranslations(post.translations as Partial<Record<LocaleCode, BlogTranslation>> & { en: BlogTranslation }),
+	};
+});
 
-export function getBlogImageSrc(key: BlogImageKey): string {
+export function getBlogImageSrc(key: BlogImageKey, postId?: string): string {
+	if (postId && blogImageByPostId[postId]) return blogImageByPostId[postId];
 	return imageMap[key];
 }
 
@@ -92,7 +99,7 @@ export function resolvePost(post: BlogPostDefinition, locale: LocaleCode): Resol
 		...post,
 		locale,
 		translation,
-		imageSrc: getBlogImageSrc(post.imageKey),
+		imageSrc: getBlogImageSrc(post.imageKey, post.id),
 		canonicalPath: getBlogPostPath(locale, translation.slug),
 	};
 }
@@ -204,7 +211,7 @@ export function getBlogSitemapEntriesForLocale(locale: LocaleCode) {
 
 	for (const post of blogPosts) {
 		const t = post.translations[locale];
-		const imageSrc = getBlogImageSrc(post.imageKey);
+		const imageSrc = getBlogImageSrc(post.imageKey, post.id);
 		const isProductPost = /Fortnite Cheats|Fortnite Cheats|Aimbot|ESP|Undetected|Comparisons/i.test(
 			post.category,
 		);

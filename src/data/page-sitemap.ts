@@ -1,5 +1,4 @@
 import { siteConfig } from './site';
-import { fortniteImages } from './fortnite';
 import { englishPaths, pageIds, type PageId } from './i18n/routing';
 import { pageSitemapMeta } from './sitemap-meta';
 import {
@@ -34,31 +33,31 @@ const img = (path: string, title: string, caption: string): SitemapImage => ({
  * One screenshot per page — paths stay in fortniteImages; titles/captions from brand tokens.
  */
 const pageImageSrcById: Record<PageId, string> = {
-	home: fortniteImages.hero,
-	'fortnite-esp': fortniteImages.playerEsp,
-	'fortnite-aimbot': fortniteImages.aimbotCombat,
-	features: fortniteImages.aimbotSkeleton,
-	pricing: fortniteImages.cheatsCombat,
-	setup: fortniteImages.playerEsp,
-	updates: fortniteImages.hero,
-	faq: fortniteImages.aimbotSkeleton,
-	support: fortniteImages.cheatsCombat,
-	undetected: fortniteImages.espWallhack,
-	wallhack: fortniteImages.espWallhack,
-	radar: fortniteImages.playerEsp,
-	'eac-bypass': fortniteImages.aimbotCombat,
-	'cheats-2026': fortniteImages.hero,
-	hacks: fortniteImages.cheatsCombat,
-	'cheat-download': fortniteImages.cheatsCombat,
-	'mod-menu': fortniteImages.playerEsp,
-	'soft-aim': fortniteImages.aimbotSkeleton,
-	'best-cheats': fortniteImages.hero,
-	'aimbot-hack': fortniteImages.aimbotSkeleton,
-	'esp-hack': fortniteImages.espWallhack,
-	'unlock-all': fortniteImages.playerEsp,
-	privacy: fortniteImages.aimbotCombat,
-	refund: fortniteImages.cheatsCombat,
-	terms: fortniteImages.aimbotSkeleton,
+	home: '/images/fortnite-hero-banner.png',
+	'fortnite-esp': '/images/fortnite-cheats-wallhack-distance.png',
+	'fortnite-aimbot': '/images/fortnite-aimbot-fov-settings.png',
+	features: '/images/fortnite-aimbot-sniper-esp.png',
+	pricing: '/images/fortnite-cheats-esp-wallhack.png',
+	setup: '/images/fortnite-aimbot-skeleton-box.png',
+	updates: '/images/fortnite-aimbot-tracers.png',
+	faq: '/images/fortnite-cheats-warmup-esp.png',
+	support: '/images/fortnite-cheats-lobby-esp.png',
+	undetected: '/images/fortnite-cheats-esp-overlay.png',
+	wallhack: '/images/fortnite-cheats-item-wallhack.png',
+	radar: '/images/fortnite-cheats-bot-esp.png',
+	'eac-bypass': '/images/fortnite-aimbot-lock.png',
+	'cheats-2026': '/images/fortnite-cheats-tracer-wave.png',
+	hacks: '/images/fortnite-cheats-combat-esp.png',
+	'cheat-download': '/images/fortnite-cheats-weapon-loot-esp.png',
+	'mod-menu': '/images/fortnite-cheats-build-esp.png',
+	'soft-aim': '/images/fortnite-aimbot-scope-combat.png',
+	'best-cheats': '/images/fortnite-cheats-zero-build-esp.png',
+	'aimbot-hack': '/images/fortnite-aimbot-fov-settings.png',
+	'esp-hack': '/images/fortnite-cheats-wallhack-distance.png',
+	'unlock-all': '/images/fortnite-cheats-weapon-loot-esp.png',
+	privacy: '/images/fortnite-hero-banner.png',
+	refund: '/images/fortnite-cheats-bot-esp.png',
+	terms: '/images/fortnite-aimbot-sniper-esp.png',
 };
 
 for (const pageId of pageIds) {

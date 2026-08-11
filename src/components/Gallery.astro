@@ -14,14 +14,12 @@ const ui = getUi(locale);
 const gallery = getGalleryUi(locale);
 
 const galleryAlts = [
-	ui.images.cheatsPackage,
+	ui.images.playerEsp,
 	ui.images.espWallhack,
 	ui.images.aimbotCombat,
-	ui.images.headerArt,
-	ui.images.squadFight,
 ] as const;
 
-const galleryImages = fortniteImages.gallery.slice(0, 4).map((image, index) => ({
+const galleryImages = fortniteImages.gallery.slice(0, 3).map((image, index) => ({
 	src: image.src,
 	alt: galleryAlts[index] ?? image.alt,
 }));

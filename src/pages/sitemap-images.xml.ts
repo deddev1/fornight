@@ -1,6 +1,8 @@
 import type { APIRoute } from 'astro';
+import { blogPosts, getBlogPostPath } from '../data/blog/helpers';
+import { defaultLocale } from '../data/i18n/locales';
+import { englishPaths, pageIds } from '../data/i18n/routing';
 import { absolutePageUrl, imageSitemapEntries, pageSitemapEntries } from '../data/page-sitemap';
-import { englishPaths } from '../data/i18n/routing';
 
 function escapeXml(value: string): string {
 	return value
@@ -17,16 +19,18 @@ export const prerender = true;
  * Prefer distinct host pages so Features / Store / Status appear in the image sitemap
  * and Google never sees duplicate <loc> rows (a common crawl warning).
  */
-const PREFERRED_HOSTS = [
+const CORE_HOSTS = [
 	englishPaths.home,
 	englishPaths.features,
 	englishPaths.pricing,
 	englishPaths.updates,
-	englishPaths['fortnite-esp'],
-	englishPaths['fortnite-aimbot'],
-	englishPaths.hacks,
-	englishPaths.undetected,
 ] as const;
+
+const PREFERRED_HOSTS = [
+	...CORE_HOSTS,
+	...pageIds.map((id) => englishPaths[id]).filter((path) => !CORE_HOSTS.includes(path as (typeof CORE_HOSTS)[number])),
+	...blogPosts.map((post) => getBlogPostPath(defaultLocale, post.translations.en.slug)),
+];
 
 /**
  * Dedicated image sitemap: one unique page <loc> per unique image asset.

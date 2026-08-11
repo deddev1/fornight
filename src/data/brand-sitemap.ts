@@ -13,34 +13,34 @@ export type BrandSitemapImage = {
 
 const defaultImages: BrandSitemapImage[] = [
 	{
-		src: '/images/fortnite-cheats-esp.webp',
-		title: 'fortnite cheats esp',
-		caption: 'fortnite cheats esp wallhack',
+		src: '/images/fortnite-hero-banner.png',
+		title: 'fortnite aimbot',
+		caption: 'fortnite aimbot hero banner for Windows PC',
 	},
 	{
-		src: '/images/fortnite-cheats-wallhack.webp',
+		src: '/images/fortnite-aimbot-sniper-esp.png',
+		title: 'fortnite aimbot ESP',
+		caption: 'fortnite aimbot sniper ESP skeleton overlay',
+	},
+	{
+		src: '/images/fortnite-cheats-esp-wallhack.png',
 		title: 'fortnite cheats wallhack',
-		caption: 'fortnite cheats wallhack esp',
+		caption: 'fortnite cheats ESP wallhack through walls',
 	},
 	{
-		src: '/images/fortnite-cheats-aimbot.webp',
-		title: 'fortnite cheats aimbot',
-		caption: 'fortnite cheats aimbot soft aim',
+		src: '/images/fortnite-aimbot-tracers.png',
+		title: 'fortnite aimbot tracers',
+		caption: 'fortnite aimbot tracers and player boxes',
 	},
 	{
-		src: '/images/fortnite-cheats-aimbot-view.webp',
-		title: 'fortnite cheats aimbot',
-		caption: 'fortnite cheats aimbot view',
+		src: '/images/fortnite-cheats-combat-esp.png',
+		title: 'fortnite cheats combat ESP',
+		caption: 'fortnite cheats combat ESP player boxes',
 	},
 	{
-		src: '/images/fortnite-cheats-radar.webp',
-		title: 'fortnite cheats radar',
-		caption: 'fortnite cheats radar hack',
-	},
-	{
-		src: '/images/fortnite-cheats-raid.webp',
-		title: 'fortnite cheats',
-		caption: 'fortnite cheats in raid',
+		src: '/images/fortnite-cheats-lobby-esp.png',
+		title: 'fortnite cheats lobby ESP',
+		caption: 'fortnite cheats lobby ESP and player skins',
 	},
 ];
 

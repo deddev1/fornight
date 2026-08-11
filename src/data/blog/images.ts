@@ -1,0 +1,20 @@
+/** One Fortnite cheats screenshot per blog post — matched to the post topic. */
+export const blogImageByPostId: Record<string, string> = {
+	'patch-notes-breakdown': '/images/fortnite-cheats-combat-esp.png',
+	'fortnite-skin-leaks': '/images/fortnite-cheats-lobby-esp.png',
+	'fortnite-weapon-tier-list': '/images/fortnite-cheats-weapon-loot-esp.png',
+	'fortnite-zero-build-meta': '/images/fortnite-cheats-zero-build-esp.png',
+	'fortnite-tournament-meta': '/images/fortnite-aimbot-scope-combat.png',
+	'fortnite-loot-routes': '/images/fortnite-cheats-item-wallhack.png',
+	'fortnite-pro-settings': '/images/fortnite-aimbot-skeleton-box.png',
+	'fortnite-warmup-maps': '/images/fortnite-cheats-warmup-esp.png',
+	'fortnite-cheats-complete-guide': '/images/fortnite-cheats-esp-overlay.png',
+	'escape-from-fortnite-cheats-buyers-guide': '/images/fortnite-cheats-bot-esp.png',
+	'fortnite-cheats-2026-whats-new': '/images/fortnite-cheats-tracer-wave.png',
+	'fortnite-aimbot-settings-guide': '/images/fortnite-aimbot-fov-settings.png',
+	'fortnite-esp-wallhack-explained': '/images/fortnite-cheats-wallhack-distance.png',
+	'undetected-fortnite-cheats-eac': '/images/fortnite-aimbot-sniper-esp.png',
+	'fortnite-cheats-vs-cheatvault': '/images/fortnite-cheats-build-esp.png',
+	'elitefn-two-week-test': '/images/fortnite-aimbot-lock.png',
+	'fortnite-cheats-vs-ghostware': '/images/fortnite-aimbot-tracers.png',
+};
