@@ -5,6 +5,7 @@ import { getUi } from '../data/i18n';
 import { productInfo, siteConfig } from '../data/site';
 import { brandCopy } from '../data/site-core';
 import { fillBrandTokens } from '../data/brand';
+import { getLocalizedPath } from '../data/i18n/routing';
 import { heroWidth, heroHeight, heroSrcSet, heroSizes, heroSrc } from '../lib/responsive-images';
 
 interface Props {
@@ -78,23 +79,23 @@ const chipLabelsByLocale: Partial<Record<LocaleCode, [string, string, string, st
 	sv: ['ESP / wallhack', 'Soft aim', '2D-radar', 'Uppdateringar'],
 };
 const chipLabels = chipLabelsByLocale[locale] ?? chipLabelsByLocale.en!;
+const featuresHref = getLocalizedPath('features', locale);
 const chips = [
-	{ key: 'chipEsp', label: chipLabels[0] },
-	{ key: 'chipAim', label: chipLabels[1] },
-	{ key: 'chipRadar', label: chipLabels[2] },
-	{ key: 'chipUpdates', label: chipLabels[3] },
+	{ key: 'chipEsp', label: chipLabels[0], href: getLocalizedPath('fortnite-esp', locale) },
+	{ key: 'chipAim', label: chipLabels[1], href: getLocalizedPath('fortnite-aimbot', locale) },
+	{ key: 'chipRadar', label: chipLabels[2], href: getLocalizedPath('radar', locale) },
+	{ key: 'chipUpdates', label: chipLabels[3], href: getLocalizedPath('updates', locale) },
 ] as const;
 
 ---
 
 <section class="hero" aria-label={heroTitle}>
-	<div class="hero__media" aria-hidden="true">
-		{/* PNG master only — no lossy WebP compression on the hero */}
+	<div class="hero__media">
 		<img
 			src={heroSrc}
 			srcset={heroSrcSet}
 			sizes={heroSizes}
-			alt="fortnite cheats"
+			alt="fortnite aimbot"
 			width={heroWidth}
 			height={heroHeight}
 			fetchpriority="high"
@@ -134,6 +135,7 @@ const chips = [
 					<span class="hero__buy-label" data-edit={isEnglish ? 'ctaBuy' : undefined}>{ctaBuy}</span>
 					<span class="hero__buy-price">{priceLabel}</span>
 				</a>
+				<a class="hero__more" href={featuresHref}>{isEnglish ? 'Features' : ui.hero.seeFeatures}</a>
 			</div>
 			<ul class="hero__features">
 				{
@@ -181,7 +183,7 @@ const chips = [
 									/>
 								)}
 							</svg>
-							<span data-edit={isEnglish ? chip.key : undefined}>{chip.label}</span>
+							<a href={chip.href} data-edit={isEnglish ? chip.key : undefined}>{chip.label}</a>
 						</li>
 					))
 				}
@@ -195,10 +197,10 @@ const chips = [
 		--hero-pad-y: clamp(1rem, 2vw, 1.75rem);
 		--hero-stack: clamp(0.5rem, 1.1vw, 0.75rem);
 		/*
-		 * Bar is a bit shorter than the native 1024/409 (~2.5:1) art.
-		 * Image stays undistorted via object-fit: cover (crops edges, no squash).
+		 * Native art is 1024×364 (~2.81:1). The bar is shorter so top/bottom
+		 * crop via object-fit: cover — the image is never stretched.
 		 */
-		--hero-ratio: 3.15 / 1;
+		--hero-ratio: 3.55 / 1;
 		position: relative;
 		isolation: isolate;
 		display: grid;
@@ -228,8 +230,7 @@ const chips = [
 	.hero__media img {
 		/* Cover = keep proportions; crop top/bottom of the shorter bar */
 		object-fit: cover;
-		/* Prefer a bit higher in the frame so the USEC head stays in view */
-		object-position: right 28%;
+		object-position: right top;
 		image-rendering: auto;
 		transform: translateZ(0);
 		animation: hero-in 0.9s ease-out both;
@@ -267,7 +268,7 @@ const chips = [
 		flex-direction: column;
 		align-items: stretch;
 		gap: var(--hero-stack);
-		width: min(100%, 28rem);
+		width: min(100%, 42rem);
 		max-width: 100%;
 		min-width: 0;
 		margin: 0;
@@ -278,13 +279,15 @@ const chips = [
 	.hero__brand {
 		margin: 0;
 		font-family: var(--font-sans);
-		font-size: clamp(2.1rem, 4.4vw, 3.25rem);
+		font-size: clamp(1.85rem, 4.2vw, 3.05rem);
 		font-weight: 700;
-		line-height: 1.12;
+		line-height: 1;
 		letter-spacing: -0.03em;
-		overflow-wrap: anywhere;
+		white-space: nowrap;
+		overflow-wrap: normal;
 		color: #fff;
-		width: 100%;
+		width: max-content;
+		max-width: 100%;
 		text-transform: uppercase;
 	}
 
@@ -370,6 +373,32 @@ const chips = [
 
 	.hero__buy:active {
 		transform: translateY(0);
+	}
+
+	.hero__more {
+		display: inline-flex;
+		align-items: center;
+		min-height: 3rem;
+		padding: 0.55rem 1.05rem;
+		border-radius: 999px;
+		border: 1px solid color-mix(in srgb, #fff 22%, transparent);
+		color: #fff;
+		font-size: 0.9375rem;
+		font-weight: 600;
+		letter-spacing: -0.015em;
+	}
+
+	.hero__more:hover {
+		background: color-mix(in srgb, #fff 8%, transparent);
+	}
+
+	.hero__features a {
+		color: inherit;
+		text-decoration: none;
+	}
+
+	.hero__features a:hover {
+		color: #fff;
 	}
 
 	.hero__features {
@@ -486,13 +515,13 @@ const chips = [
 
 		.hero__copy {
 			width: 100%;
-			max-width: 28rem;
+			max-width: none;
 			gap: 0.65rem;
 		}
 
 		.hero__brand {
-			font-size: clamp(1.7rem, 7.5vw, 2.35rem);
-			line-height: 1.08;
+			font-size: clamp(1.35rem, 7.2vw, 2.2rem);
+			line-height: 1;
 		}
 
 		.hero__lede {
@@ -514,6 +543,12 @@ const chips = [
 			min-height: var(--touch-min, 2.75rem);
 			font-size: 0.9375rem;
 			justify-content: flex-start;
+		}
+
+		.hero__more {
+			width: 100%;
+			max-width: 22rem;
+			justify-content: center;
 		}
 
 		.hero__buy-price {
@@ -540,7 +575,7 @@ const chips = [
 		}
 
 		.hero__brand {
-			font-size: clamp(1.55rem, 8.2vw, 1.95rem);
+			font-size: clamp(1.2rem, 7.4vw, 1.75rem);
 		}
 
 		.hero__lede {
@@ -563,7 +598,7 @@ const chips = [
 		}
 
 		.hero__brand {
-			font-size: 1.45rem;
+			font-size: clamp(1.05rem, 7vw, 1.35rem);
 		}
 
 		.hero__features {

@@ -33,26 +33,24 @@ export function contentSrcSet(baseSrc: string): string | undefined {
 }
 
 /**
- * Homepage hero — native 1024×409 (~2.5:1).
- * Prefer the PNG master (no lossy compression). WebP is lossless fallback only.
+ * Homepage hero — lossless PNG master. Do not convert to JPEG/WebP.
  */
 export const heroResponsive: ResponsiveWidth[] = [
-	{ src: '/images/fortnite-cheats-hero-full.png', width: 1024 },
+	{ src: '/images/fortnite-hero-banner.png', width: 1024 },
 ];
 
 export const heroDesktopResponsive: ResponsiveWidth[] = heroResponsive;
 
-/** Uncompressed PNG master — do not point this at a lossy webp. */
-export const heroSrc = '/images/fortnite-cheats-hero-full.png';
+export const heroSrc = '/images/fortnite-hero-banner.png';
 export const heroSrcSet = `${heroSrc} 1024w`;
 export const heroSizes = '100vw';
 
-/** LCP preload — PNG master. */
+/** LCP preload — uncompressed PNG */
 export const heroPreloadSrc = heroSrc;
 
-/** Exact native dimensions (no zoom crop). */
+/** Exact native dimensions. */
 export const heroWidth = 1024;
-export const heroHeight = 409;
+export const heroHeight = 364;
 
 /** Responsive widths for below-fold content images. */
 export const contentWidths = [480, 960] as const;

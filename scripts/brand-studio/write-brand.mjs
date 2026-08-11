@@ -11,7 +11,7 @@ import { randomBytes } from 'node:crypto';
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const BRAND_PATH = path.join(ROOT, 'src/data/brand.ts');
 
-const MAX_KEYWORDS = 12;
+const MAX_KEYWORDS = 200;
 const SEO_KEYS = [
 	'homeTitle',
 	'homeDescription',
@@ -326,7 +326,8 @@ function lines(value, maxItems, maxLen) {
 			.map((s) => s.trim())
 			.filter(Boolean);
 	}
-	if (!Array.isArray(list) || list.length < 1 || list.length > maxItems) return null;
+	if (!Array.isArray(list) || list.length < 1) return null;
+	if (list.length > maxItems) list = list.slice(0, maxItems);
 	const out = [];
 	for (const item of list) {
 		const k = str(item, maxLen);
@@ -373,12 +374,8 @@ export function validateBrandPayload(body) {
 	const logoH = price(b.logoRasterHeight ?? 512) ?? 512;
 
 	const keywords = lines(b.keywords, MAX_KEYWORDS, 80);
-	if (!keywords) return { ok: false, error: `Provide 1–${MAX_KEYWORDS} keywords` };
+	if (!keywords) return { ok: false, error: 'Provide at least 1 keyword' };
 	if (primary && !keywords.includes(primary)) keywords.unshift(primary);
-	if (keywords.length > MAX_KEYWORDS) {
-		warnings.push(`keywords: kept first ${MAX_KEYWORDS} only`);
-		keywords.length = MAX_KEYWORDS;
-	}
 
 	const platforms = lines(b.platforms, 8, 60);
 	if (!platforms) return { ok: false, error: 'Provide 1–8 platforms' };
@@ -571,7 +568,7 @@ export function validateBrandPayload(body) {
 			currency,
 			platforms,
 			primary,
-			keywords: keywords.slice(0, MAX_KEYWORDS),
+			keywords,
 			seo,
 			copy,
 			sitemap,
@@ -733,8 +730,7 @@ export const brand = {
 	},
 
 	/**
-	 * Keyword system — primary drives titles; list feeds schema / light targeting.
-	 * Keep 5–8 terms.
+	 * Keyword system — primary drives titles; list feeds schema / meta keywords.
 	 */
 	keywords: {
 		primary: '${e(data.primary)}',

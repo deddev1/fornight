@@ -52,7 +52,7 @@ const REPLACEMENTS = [
 	['EAC Bypass', 'EAC Bypass'],
 	['Easy Anti-Cheat', 'Easy Anti-Cheat'],
 	['eac-bypass', 'eac-bypass'],
-	['support@bestfortnitecheats.com', 'support@bestfortnitecheats.com'],
+	['support@fortniteaimbot.com', 'support@fortniteaimbot.com'],
 	['Battle Royale island, Zero Build, and Ranked', 'Battle Royale island, Zero Build, and Ranked'],
 	['Battle Royale island, Zero Build and Ranked', 'Battle Royale island, Zero Build and Ranked'],
 	['reboot fights', 'reboot fights'],

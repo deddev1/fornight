@@ -64,7 +64,7 @@ export const blogPosts: BlogPostDefinition[] = [
 		en: {
 		slug: "fortnite-skin-leaks-guide",
 		title: "Fortnite Skin Leaks: Season Cosmetics Guide",
-		metaDescription: "Fortnite skin leaks and shop advice — which season cosmetics are worth CP before the next reset. Save smart and skip FOMO bundles on bestfortnitecheats.com.",
+		metaDescription: "Fortnite skin leaks and shop advice — which season cosmetics are worth CP before the next reset. Save smart and skip FOMO bundles on fortniteaimbot.com.",
 		h1: "Fortnite Skin Leaks Worth Your CP",
 		intro: "The next season is coming. Here is which leaked and rotating cosmetics are actually worth buying before the shop resets hard.",
 		keywords: ["fortnite skin leaks","cosmetics","item shop","fortnite intel","fortnite cheats"],
@@ -444,7 +444,7 @@ export const blogPosts: BlogPostDefinition[] = [
 			{
 				h2: "Hacks vs cheats wording",
 				paragraphs: [
-					"Fortnite cheats and fortnite cheats describe the same product category for most searchers. We lead with hacks on bestfortnitecheats.com while keeping cheats pages for buyers who use that query.",
+					"Fortnite cheats and fortnite cheats describe the same product category for most searchers. We lead with hacks on fortniteaimbot.com while keeping cheats pages for buyers who use that query.",
 					"Balance and anti-cheat reality still come from <a href=\"https://www.fortnite.com/\" target=\"_blank\" rel=\"noopener noreferrer\">Fortnite</a>. Product rebuild timing is on our <a href=\"/updates/\">Updates</a> page.",
 				],
 			},

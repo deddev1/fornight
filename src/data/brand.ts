@@ -5,14 +5,14 @@
  */
 export const brand = {
 	/** Public brand name (nav, footer, H1 hero, schema Organization) */
-	name: 'Fortnite Cheats',
+	name: 'Fortnite Aimbot',
 	/** Short product label if needed */
 	shortName: 'Fortnite',
 	/** Canonical origin — no trailing slash */
-	url: 'https://bestfortnitecheats.com',
+	url: 'https://fortniteaimbot.com',
 	locale: 'en',
 	market: 'Worldwide',
-	supportEmail: 'support@bestfortnitecheats.com',
+	supportEmail: 'support@fortniteaimbot.com',
 	checkoutUrl: 'https://zadeyo.com/go/QRH?to=%2Fproducts%2Ffortnite',
 
 	/** Game this template instance targets */
@@ -24,9 +24,9 @@ export const brand = {
 	logoRaster: '/images/fortnite-cheats-logo.png',
 	logoRasterWidth: 512,
 	logoRasterHeight: 512,
-	logoAlt: 'fortnite cheats logo',
-	defaultOgImage: '/images/fortnite-cheats-hero-full.png',
-	heroImage: '/images/fortnite-cheats-hero-full.png',
+	logoAlt: 'fortnite aimbot logo',
+	defaultOgImage: '/images/fortnite-hero-banner.png',
+	heroImage: '/images/fortnite-hero-banner.png',
 
 	plans: [
 		{ id: 'monthly', label: 'Monthly', price: 35, duration: 'P30D' },
@@ -49,20 +49,41 @@ export const brand = {
 	},
 
 	/**
-	 * Keyword system — primary drives titles; list feeds schema / light targeting.
-	 * Keep 5–8 terms.
+	 * Keyword system — primary drives titles; list feeds schema / meta keywords.
 	 */
 	keywords: {
-		primary: 'fortnite cheats',
+		primary: 'fortnite aimbot',
 		list: [
-			'fortnite cheats',
 			'fortnite aimbot',
-			'fortnite esp',
-			'fortnite wallhack',
 			'fortnite hacks',
-			'undetected fortnite cheats',
-			'best fortnite cheats',
-			'fortnite cheat download',
+			'cheat on fortnite',
+			'aimbot for fortnite',
+			'fortnite cheats',
+			'aimbot fortnite',
+			'download aimbot for fortnite',
+			'aimbot for fortnite download',
+			'download fortnite aimbot',
+			'fortnite aimbot download',
+			'hacks for fortnite',
+			'free cheat fortnite',
+			'aimbot in fortnite',
+			'fortnite free cheats',
+			'fortnite hacks free',
+			'free hacks fortnite',
+			'fortnite aimbot free',
+			'fortnite hacks for free',
+			'fortnite aimbot free download',
+			'aimbot for fortnite pc',
+			'free fortnite aimbot',
+			'fortnite hacks ps4',
+			'fortnite aimbot pc',
+			'fortnite aimbot ps5',
+			'fortnite hacks pc',
+			'best fortnite cheat',
+			'fortnite wall hacks',
+			'best fortnite hacks',
+			'fortnite external cheat',
+			'undetectable fortnite cheats',
 		] as const,
 	},
 
@@ -71,8 +92,8 @@ export const brand = {
 	 * Aim ~50–60 chars titles, ~140–160 chars descriptions.
 	 */
 	seo: {
-		homeTitle: 'Fortnite Cheats | Undetected ESP & Aimbot',
-		homeDescription: 'Buy undetected Fortnite cheats for Windows PC. ESP, soft aim, and EAC updates in one license.',
+		homeTitle: 'Fortnite Aimbot | Undetected PC Hacks',
+		homeDescription: 'Buy undetected fortnite aimbot for Windows PC. ESP, soft aim, and EAC updates in one license.',
 		featuresTitle: '{game} Features | {brand}',
 		featuresDescription: 'Everything in one {game} license for Windows PC — ESP, aimbot, Cheats, and patch updates.',
 		storeTitle: '{game} Store | {brand}',
@@ -97,7 +118,7 @@ export const brand = {
 	copy: {
 		tagline: 'Undetected {primaryKeyword} — ESP, aimbot, and radar for PC',
 		summary: '{brand} is an undetected {game} cheat package for Windows PC. Includes ESP, soft aim, and zone tracking, with {antiCheat} maintenance after patches.',
-		heroLede: 'Cheats available — ESP, Aimbot & radar for Fortnite.',
+		heroLede: 'Fortnite aimbot for PC — ESP, soft aim, and radar in one license.',
 		blogLabel: 'Fortnite Intel',
 		ctaBuy: 'Get Access',
 		ctaBuyShort: 'Buy',
@@ -134,9 +155,9 @@ export const brand = {
 		reviewsImageCaption: 'What buyers say about {primaryKeyword}',
 		images: [
 			{
-				src: '/images/fortnite-cheats-esp.webp',
-				title: 'fortnite cheats esp',
-				caption: 'fortnite cheats esp wallhack overlay',
+				src: '/images/fortnite-hero-banner.png',
+				title: 'fortnite aimbot',
+				caption: 'fortnite aimbot hero banner for Windows PC',
 			},
 			{
 				src: '/images/fortnite-cheats-wallhack.webp',

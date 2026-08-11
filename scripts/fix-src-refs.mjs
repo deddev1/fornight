@@ -28,7 +28,7 @@ const REPLACEMENTS = [
 	['Fortnite', 'Fortnite'],
 	['Easy Anti-Cheat', 'Easy Anti-Cheat'],
 	['eac-bypass', 'eac-bypass'],
-	['bestfortnitecheats.com', 'bestfortnitecheats.com'],
+	['fortniteaimbot.com', 'fortniteaimbot.com'],
 	['operatorEsp', 'playerEsp'],
 	['rebootFight', 'rebootFight'],
 	['alMazrah', 'battleRoyaleIsland'],

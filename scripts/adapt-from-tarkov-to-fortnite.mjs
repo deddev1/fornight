@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
  * One-time migration: Tarkov Cheats → Fortnite Cheats.
- * Domain: bestfortnitecheats.com
+ * Domain: fortniteaimbot.com
  * Run from project root: node scripts/adapt-from-tarkov-to-fortnite.mjs
  */
 import { readFile, writeFile, readdir, rename } from 'node:fs/promises';
@@ -30,18 +30,18 @@ const RENAME_PAGE_DIRS = [
 
 /** Ordered replacements — specific patterns first. */
 const REPLACEMENTS = [
-	['https://www.besttarkovcheats.com', 'https://www.bestfortnitecheats.com'],
-	['https://besttarkovcheats.com', 'https://bestfortnitecheats.com'],
-	['www.besttarkovcheats.com', 'www.bestfortnitecheats.com'],
-	['besttarkovcheats.com', 'bestfortnitecheats.com'],
-	['support@besttarkovcheats.com', 'support@bestfortnitecheats.com'],
+	['https://www.besttarkovcheats.com', 'https://www.fortniteaimbot.com'],
+	['https://besttarkovcheats.com', 'https://fortniteaimbot.com'],
+	['www.besttarkovcheats.com', 'www.fortniteaimbot.com'],
+	['besttarkovcheats.com', 'fortniteaimbot.com'],
+	['support@besttarkovcheats.com', 'support@fortniteaimbot.com'],
 	['%2Fproducts%2Fescape-from-tarkov', '%2Fproducts%2Ffortnite'],
 	['/products/escape-from-tarkov', '/products/fortnite'],
 	['/products/tarkov', '/products/fortnite'],
-	['project-name=besttarkovcheats', 'project-name=bestfortnitecheats'],
-	['project-name=tarkovcheats', 'project-name=bestfortnitecheats'],
-	['name = "tarkovcheats"', 'name = "bestfortnitecheats"'],
-	['name = "besttarkovcheats"', 'name = "bestfortnitecheats"'],
+	['project-name=besttarkovcheats', 'project-name=fortniteaimbot'],
+	['project-name=tarkovcheats', 'project-name=fortniteaimbot'],
+	['name = "tarkovcheats"', 'name = "fortniteaimbot"'],
+	['name = "besttarkovcheats"', 'name = "fortniteaimbot"'],
 	['"name": "tarkov-cheats"', '"name": "fortnite-cheats"'],
 	['repo: tarkovcheats', 'repo: fornight'],
 	['repo:tarkovcheats', 'repo:fornight'],
@@ -383,7 +383,7 @@ async function renameImages() {
 }
 
 async function main() {
-	console.log('Adapting Tarkov Cheats → Fortnite Cheats (bestfortnitecheats.com)...\n');
+	console.log('Adapting Tarkov Cheats → Fortnite Cheats (fortniteaimbot.com)...\n');
 	await renamePageDirs();
 	await renameDataModule();
 	await renameScripts();

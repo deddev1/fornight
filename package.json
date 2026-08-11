@@ -19,7 +19,7 @@
 		"validate:sitemaps": "node scripts/validate-sitemaps.mjs",
 		"generate:i18n": "node scripts/generate-i18n-content.mjs",
 		"deploy": "npm run build && wrangler deploy",
-		"pages:deploy": "wrangler pages deploy dist --project-name=bestfortnitecheats",
+		"pages:deploy": "wrangler pages deploy dist --project-name=fortniteaimbot",
 		"astro": "astro"
 	},
 	"dependencies": {

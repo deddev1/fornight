@@ -2,7 +2,7 @@ import { siteConfig } from './site';
 
 /** Screenshots used across product pages — simple fortnite cheats keyword alts. */
 export const fortniteImages = {
-	hero: '/images/fortnite-cheats-hero-full.png',
+	hero: '/images/fortnite-hero-banner.png',
 	espWallhack: '/images/fortnite-cheats-wallhack.webp',
 	aimbotCombat: '/images/fortnite-cheats-aimbot.webp',
 	aimbotSkeleton: '/images/fortnite-cheats-aimbot-view.webp',

@@ -149,7 +149,7 @@ export const enPages = {
 			section(
 				'Licensing, delivery, and EAC maintenance',
 				'Monthly ($35) and lifetime ($150) licenses with instant digital delivery. EAC maintenance rebuilds publish on the <a href="/updates/">Updates page</a> after anti-cheat or game patches.',
-				`Monitor ${EXT.status} on patch days, then confirm rebuild notes before you queue. Setup and billing help lives on <a href="/support/">Support</a> and support@bestfortnitecheats.com.`,
+				`Monitor ${EXT.status} on patch days, then confirm rebuild notes before you queue. Setup and billing help lives on <a href="/support/">Support</a> and support@fortniteaimbot.com.`,
 				'Next step: compare plans on <a href="/pricing/">Pricing</a> or read <a href="/undetected-fortnite-cheats/">how undetected maintenance works</a>.',
 			),
 		],
@@ -281,7 +281,7 @@ export const enPages = {
 			section(
 				'Delivery, pricing, and support',
 				'Licenses deliver digitally after payment confirmation. Monthly is $35; lifetime is $150 USD — see <a href="/pricing/">Pricing</a>.',
-				'Contact support@bestfortnitecheats.com or the <a href="/support/">Support page</a> with order details for setup or billing help. First launch steps are on <a href="/setup/">Setup</a>.',
+				'Contact support@fortniteaimbot.com or the <a href="/support/">Support page</a> with order details for setup or billing help. First launch steps are on <a href="/setup/">Setup</a>.',
 				'Refund eligibility is covered in the <a href="/refund-policy/">Refund Policy</a>.',
 			),
 		],
@@ -314,7 +314,7 @@ export const enPages = {
 			section(
 				'Self-service resources',
 				'Setup guide, Features list, Updates log, Refund Policy, and Terms of Use are linked from the footer. EAC bypass notes live on the dedicated <a href="/eac-bypass/">Easy Anti-Cheat page</a>.',
-				'Email: support@bestfortnitecheats.com',
+				'Email: support@fortniteaimbot.com',
 				'Ready to purchase or renew? Open <a href="/pricing/">Pricing</a>. Need feature detail first? See <a href="/features/">Features</a>.',
 			),
 		],
@@ -480,7 +480,7 @@ export const enPages = {
 				'Before you buy in 2026',
 				'Read the <a href="/fortnite-cheats/">Fortnite cheats</a> pillar, Features, Pricing, Setup, and Updates pages. Check undetected status notes after every major patch — responsible use and maintenance awareness matter.',
 				'Also compare the <a href="/best-fortnite-cheats/">best Fortnite cheats</a> checklist, <a href="/blog/fortnite-cheats-2026-whats-new/">2026 blog guide</a>, and <a href="/faq/">FAQ</a>.',
-				'Support is available at support@bestfortnitecheats.com via the <a href="/support/">Support page</a>.',
+				'Support is available at support@fortniteaimbot.com via the <a href="/support/">Support page</a>.',
 			),
 		],
 	},
@@ -757,9 +757,9 @@ export const enPages = {
 	privacy: {
 		title: 'Privacy Policy | Fortnite Cheats',
 		description:
-			'Privacy policy for Fortnite Cheats. How we handle support emails, order data, and checkout for fortnite cheats licenses on bestfortnitecheats.com.',
+			'Privacy policy for Fortnite Cheats. How we handle support emails, order data, and checkout for fortnite cheats licenses on fortniteaimbot.com.',
 		h1: 'Privacy Policy',
-		intro: 'How Fortnite Cheats handles information when you browse bestfortnitecheats.com or contact support about a Fortnite license.',
+		intro: 'How Fortnite Cheats handles information when you browse fortniteaimbot.com or contact support about a Fortnite license.',
 		imageAlt: 'fortnite cheats',
 		galleryTitle: 'Fortnite Cheats legal resources',
 		ctaPrimary: 'Email support',
@@ -779,8 +779,8 @@ export const enPages = {
 			),
 			section(
 				'Your choices and contact',
-				'You may request correction or deletion of support email data by contacting support@bestfortnitecheats.com with your request details.',
-				'Policy updates publish on this page. Continued use of bestfortnitecheats.com after updates means you accept the revised policy. Also see <a href="/terms/">Terms of Use</a> and <a href="/refund-policy/">Refund Policy</a>.',
+				'You may request correction or deletion of support email data by contacting support@fortniteaimbot.com with your request details.',
+				'Policy updates publish on this page. Continued use of fortniteaimbot.com after updates means you accept the revised policy. Also see <a href="/terms/">Terms of Use</a> and <a href="/refund-policy/">Refund Policy</a>.',
 			),
 		],
 	},
@@ -809,7 +809,7 @@ export const enPages = {
 			),
 			section(
 				'How to request a refund',
-				'Email support@bestfortnitecheats.com with subject "Refund Request", your order ID, purchase date, and issue summary — or use the <a href="/support/">Support page</a>.',
+				'Email support@fortniteaimbot.com with subject "Refund Request", your order ID, purchase date, and issue summary — or use the <a href="/support/">Support page</a>.',
 				'Approved refunds process back to the original payment method when possible. Pricing details live on <a href="/pricing/">Pricing</a>.',
 			),
 		],
@@ -817,9 +817,9 @@ export const enPages = {
 	terms: {
 		title: 'Terms of Use 2026 | Fortnite Cheats Rules',
 		description:
-			'Terms of use for bestfortnitecheats.com and Fortnite Cheats licenses. Usage rules, anti-cheat risk, and liability for PC and controller cheats.',
+			'Terms of use for fortniteaimbot.com and Fortnite Cheats licenses. Usage rules, anti-cheat risk, and liability for PC and controller cheats.',
 		h1: 'Terms of Use',
-		intro: 'Terms governing use of bestfortnitecheats.com and Fortnite Cheats licenses for Fortnite on Windows PC.',
+		intro: 'Terms governing use of fortniteaimbot.com and Fortnite Cheats licenses for Fortnite on Windows PC.',
 		imageAlt: 'fortnite cheats',
 		galleryTitle: 'Fortnite Cheats legal pages',
 		ctaPrimary: 'Email support',
@@ -839,7 +839,7 @@ export const enPages = {
 			section(
 				'Changes and governing law',
 				'We may update these terms by posting revisions on this page. Continued use after changes constitutes acceptance.',
-				'Contact support@bestfortnitecheats.com for questions. Related policies: <a href="/privacy-policy/">Privacy</a> and <a href="/refund-policy/">Refunds</a>.',
+				'Contact support@fortniteaimbot.com for questions. Related policies: <a href="/privacy-policy/">Privacy</a> and <a href="/refund-policy/">Refunds</a>.',
 			),
 		],
 	},

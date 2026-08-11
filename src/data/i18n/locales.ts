@@ -95,7 +95,7 @@ export const blogUi: Record<
 	en: {
 		blogTitle: 'Fortnite Cheats Blog | ESP, Cheats & Meta Tips',
 		blogDescription:
-			'Fortnite cheats guides — ESP, aimbot, Ranked meta, loot routes, and EAC updates. Global English blog at bestfortnitecheats.com/blog/.',
+			'Fortnite cheats guides — ESP, aimbot, Ranked meta, loot routes, and EAC updates. Global English blog at fortniteaimbot.com/blog/.',
 		blogH1: 'Fortnite Cheats Intel',
 		blogIntro:
 			'Actionable Fortnite guides for Battle Royale and Zero Build — meta breakdowns, loot routes, weapon tiers, and warmup routines. Pair these tips with our fortnite cheats pages for ESP boxes and soft aim when you need in-match tools.',

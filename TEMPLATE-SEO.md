@@ -126,7 +126,7 @@ Helpers: `seoTitle(topic)` and `seoDescription(template)` in `src/data/brand.ts`
 ## Expandability notes
 
 - **Any domain**: set `brand.url` → sync updates Astro `site`, robots sitemap, webmanifest.
-- **Any keyword set**: set `brand.keywords.primary` + `list` (5–8 terms). Layout meta keywords and schema follow automatically.
+- **Any keyword set**: set `brand.keywords.primary` + `list`. Layout meta keywords and schema follow automatically.
 - **Any game**: set `brand.game` + `antiCheat`; template EN pages and FAQs resolve via tokens.
 - **UI brand strings**: Hero, footer, 404, reviews CTAs, blog eyebrow read from `siteConfig` / `blogLabel` — do not hardcode.
 

@@ -32,7 +32,7 @@ const UI_REPLACEMENTS = [
 	['Verdansk', 'Verdansk'],
 	['zero-build', 'zero-build'],
 	['reboot', 'reboot'],
-	['bestfortnitecheats.com', 'bestfortnitecheats.com'],
+	['fortniteaimbot.com', 'fortniteaimbot.com'],
 	['Trucos Fortnite', 'Trucos Fortnite'],
 	['Triches Fortnite', 'Triches Fortnite'],
 	['Cheats Fortnite', 'Cheats Fortnite'],

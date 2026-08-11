@@ -1,6 +1,6 @@
 # Fortnite Cheats — Marketing Site
 
-Static Astro 7 site for [bestfortnitecheats.com](https://bestfortnitecheats.com). Primary SEO keyword: **fortnite cheats** (secondary: fortnite aimbot, fortnite esp, undetected fortnite cheats).
+Static Astro 7 site for [fortniteaimbot.com](https://fortniteaimbot.com). Primary SEO keyword: **fortnite cheats** (secondary: fortnite aimbot, fortnite esp, undetected fortnite cheats).
 
 ## Stack
 
@@ -29,7 +29,7 @@ npm run build:validate
 2. Connect this repo or upload `dist/` after `npm run build`
 3. Build command: `npm run build`
 4. Output directory: `dist`
-5. Add custom domain **bestfortnitecheats.com** (apex) and redirect **www** → apex
+5. Add custom domain **fortniteaimbot.com** (apex) and redirect **www** → apex
 6. Enable SSL **Always Use HTTPS**
 
 CLI deploy:
@@ -45,4 +45,4 @@ npm run pages:deploy
 
 ## License
 
-Private — for bestfortnitecheats.com deployment only.
+Private — for fortniteaimbot.com deployment only.
