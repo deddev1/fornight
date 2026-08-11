@@ -2,7 +2,6 @@
 import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar.astro';
 import Hero from '../components/Hero.astro';
-import Gallery from '../components/Gallery.astro';
 import HomeReviews from '../components/HomeReviews.astro';
 import HomeSeo from '../components/HomeSeo.astro';
 import SiteFooter from '../components/SiteFooter.astro';
@@ -119,11 +118,6 @@ const extraGraph: Record<string, unknown>[] = [
 	<Navbar locale={locale} pageId="home" />
 	<main class="home">
 		<Hero locale={locale} />
-		<div class="home__gallery">
-			<div class="shell">
-				<Gallery locale={locale} />
-			</div>
-		</div>
 		<HomeReviews />
 		<div class="home__seo">
 			{
@@ -155,11 +149,6 @@ const extraGraph: Record<string, unknown>[] = [
 	.home {
 		width: 100%;
 		overflow-x: clip;
-	}
-
-	.home__gallery {
-		padding-block: var(--section-space);
-		border-top: 1px solid var(--line-soft);
 	}
 
 	.home__seo {
