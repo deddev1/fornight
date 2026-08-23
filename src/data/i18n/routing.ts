@@ -900,6 +900,20 @@ export function hreflangLinksXml(pageId: PageId, escapeXml: (v: string) => strin
 		.join('\n');
 }
 
+/** hreflang xhtml links for path-based locales (FAQ articles, reviews). */
+export function pathHreflangLinksXml(
+	pathForLocale: (locale: LocaleCode) => string,
+	escapeXml: (v: string) => string,
+	currentLocale: LocaleCode = defaultLocale,
+): string {
+	return getPathHreflangAlternates(pathForLocale, currentLocale)
+		.map(
+			(alt) =>
+				`    <xhtml:link rel="alternate" hreflang="${escapeXml(alt.hreflang)}" href="${escapeXml(alt.href)}"/>`,
+		)
+		.join('\n');
+}
+
 export function resolvePageFromLocalizedPath(
 	locale: LocaleCode,
 	slug: string | undefined,
