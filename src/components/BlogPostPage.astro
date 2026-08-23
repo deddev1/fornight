@@ -12,6 +12,8 @@ import {
 import type { ResolvedBlogPost } from '../data/blog/types';
 import { blogLabel, siteConfig } from '../data/site';
 import { getLocalizedPath } from '../data/i18n/routing';
+import { getHubLinks } from '../data/internal-links';
+import RelatedPages from './RelatedPages.astro';
 
 interface Props {
 	locale: LocaleCode;
@@ -26,6 +28,7 @@ const blogHref = getBlogBasePath(locale);
 const related = getAllPostsForLocale(locale)
 	.filter((p) => p.id !== post.id)
 	.slice(0, 3);
+const hubLinks = getHubLinks(locale).filter((link) => link.href !== blogHref);
 
 const articleUrl = absoluteBlogUrl(locale, t.slug);
 const hreflangAlternates = getBlogPostHreflangAlternates(post, locale);
@@ -147,6 +150,7 @@ function pageTitle(headline: string): string {
 				</section>
 			)
 		}
+		<RelatedPages locale={locale} links={hubLinks} />
 			</div>
 		</div>
 	</main>
@@ -241,5 +245,9 @@ function pageTitle(headline: string): string {
 	}
 	.post__related a:hover {
 		text-decoration: underline;
+	}
+
+	.post__inner :global(.related-pages) {
+		margin-top: 2rem;
 	}
 </style>

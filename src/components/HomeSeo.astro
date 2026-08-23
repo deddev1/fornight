@@ -1,6 +1,8 @@
 ---
-import { homeFaqs } from '../data/site';
+import { homeFaqs, seoLandingPages } from '../data/site';
 import { getFaqPath } from '../data/faq';
+import { localizeInternalHref } from '../data/i18n/routing';
+import { defaultLocale } from '../data/i18n/locales';
 
 const categories = [
 	{
@@ -11,6 +13,7 @@ const categories = [
 			{ href: '/fortnite-esp/', label: 'ESP' },
 			{ href: '/fortnite-aimbot/', label: 'Aimbot' },
 			{ href: '/fortnite-radar-hack/', label: 'Radar' },
+			{ href: '/fortnite-wallhack/', label: 'Wallhack' },
 		],
 	},
 	{
@@ -31,6 +34,7 @@ const categories = [
 			{ href: '/reviews/', label: 'Reviews' },
 			{ href: '/fortnite-cheats/', label: 'Preview' },
 			{ href: '/faq/', label: 'FAQ' },
+			{ href: '/fortnite-cheats-2026/', label: '2026 guide' },
 		],
 	},
 	{
@@ -41,9 +45,13 @@ const categories = [
 			{ href: '/setup/', label: 'Setup guide' },
 			{ href: '/blog/', label: 'Blog' },
 			{ href: '/refund-policy/', label: 'Refunds' },
+			{ href: '/fortnite-cheat-download/', label: 'Download' },
 		],
 	},
 ];
+
+const linkedHrefs = new Set(categories.flatMap((cat) => cat.links.map((link) => link.href)));
+const extraLandings = seoLandingPages.filter((page) => !linkedHrefs.has(page.href));
 ---
 
 <section class="home-seo shell" aria-labelledby="home-seo-title">
@@ -78,6 +86,21 @@ const categories = [
 		}
 	</div>
 
+	{
+		extraLandings.length > 0 && (
+			<nav class="home-seo__extra" aria-label="More pages">
+				<p class="home-seo__extra-label">More pages</p>
+				<ul>
+					{extraLandings.map((page) => (
+						<li>
+							<a href={localizeInternalHref(page.href, defaultLocale)}>{page.label}</a>
+						</li>
+					))}
+				</ul>
+			</nav>
+		)
+	}
+
 	<section class="home-seo__faq" aria-labelledby="home-faq-title">
 		<header class="home-seo__faq-head">
 			<div>
@@ -96,7 +119,7 @@ const categories = [
 							<span class="home-seo__chev" aria-hidden="true" />
 						</summary>
 						<div class="home-seo__item-body">
-							<p>{item.answer}</p>
+							<p set:html={item.answer} />
 							<a class="home-seo__item-link" href={getFaqPath(item.slug)}>
 								Open full page
 							</a>
@@ -377,6 +400,61 @@ const categories = [
 		font-size: 0.875rem;
 		line-height: 1.6;
 		color: var(--ink-muted);
+	}
+
+	.home-seo__item-body a {
+		color: var(--magenta-soft);
+		font-weight: 600;
+		text-decoration: none;
+	}
+
+	.home-seo__item-body a:hover {
+		color: var(--ink);
+	}
+
+	.home-seo__extra {
+		margin-top: 1.15rem;
+		padding: 0.95rem 1.05rem;
+		border: 1px solid var(--line);
+		border-radius: var(--radius-md);
+		background: var(--bg-panel);
+	}
+
+	.home-seo__extra-label {
+		margin: 0 0 0.55rem;
+		font-size: 0.72rem;
+		font-weight: 700;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+		color: var(--ink-faint);
+	}
+
+	.home-seo__extra ul {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.45rem;
+	}
+
+	.home-seo__extra a {
+		display: inline-flex;
+		align-items: center;
+		min-height: 2.25rem;
+		padding: 0.35rem 0.8rem;
+		border: 1px solid var(--line);
+		border-radius: var(--radius-pill, 999px);
+		background: var(--bg-elevated);
+		color: var(--ink-muted);
+		font-size: 0.8125rem;
+		font-weight: 500;
+		text-decoration: none;
+	}
+
+	.home-seo__extra a:hover {
+		border-color: color-mix(in srgb, var(--magenta) 40%, var(--line));
+		color: var(--magenta-soft);
 	}
 
 	.home-seo__item-link {

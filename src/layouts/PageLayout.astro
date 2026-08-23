@@ -16,6 +16,7 @@ import {
 } from '../lib/responsive-images';
 import { defaultLocale } from '../data/i18n/locales';
 import { siteConfig } from '../data/site';
+import RelatedPages from '../components/RelatedPages.astro';
 
 type GalleryInput = string | { src: string; alt: string };
 
@@ -169,6 +170,8 @@ const useHomeHero = heroImage === fortniteImages.hero;
 			<article class="article">
 				<slot />
 			</article>
+
+			{pageId && pageId !== 'home' && <RelatedPages locale={locale} pageId={pageId} />}
 
 			{
 				showGallery && normalizedGallery.length > 0 && (
@@ -331,6 +334,10 @@ const useHomeHero = heroImage === fortniteImages.hero;
 		display: grid;
 		gap: 2rem;
 		padding-block: clamp(1.5rem, 3vw, 2.25rem) 3rem;
+	}
+
+	.page__wrap :global(.related-pages) {
+		width: min(100%, var(--content-max));
 	}
 
 	.article {

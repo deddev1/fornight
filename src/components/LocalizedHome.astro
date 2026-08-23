@@ -11,6 +11,7 @@ import type { LocaleCode } from '../data/i18n/locales';
 import { homeFaqs, homeSeo, productInfo, siteConfig, seoKeywords, customerReviewStats, customerReviews } from '../data/site';
 import { fortniteImages } from '../data/fortnite';
 import { heroPreloadSrc, heroSizes } from '../lib/responsive-images';
+import { plainTextFromHtml } from '../data/internal-links';
 
 interface Props {
 	locale: LocaleCode;
@@ -95,7 +96,7 @@ const extraGraph: Record<string, unknown>[] = [
 			url: `${siteConfig.url}/faq/${item.slug}/`,
 			acceptedAnswer: {
 				'@type': 'Answer',
-				text: item.answer,
+				text: plainTextFromHtml(item.answer),
 			},
 		})),
 	},

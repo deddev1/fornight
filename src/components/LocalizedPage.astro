@@ -7,6 +7,7 @@ import { productInfo, seoFaqs, siteConfig } from '../data/site';
 import { absoluteFaqUrl, getFaqPath } from '../data/faq';
 import { fortniteImages } from '../data/fortnite';
 import { simplePageCopy } from '../data/i18n/simple-pages';
+import { plainTextFromHtml } from '../data/internal-links';
 
 interface Props {
 	locale: LocaleCode;
@@ -57,7 +58,7 @@ const faqSchema =
 					'@type': 'Question',
 					name: item.question,
 					url: absoluteFaqUrl(item.slug),
-					acceptedAnswer: { '@type': 'Answer', text: item.answer },
+					acceptedAnswer: { '@type': 'Answer', text: plainTextFromHtml(item.answer) },
 				})),
 			}
 		: null;

@@ -1,0 +1,105 @@
+---
+import { getUi } from '../data/i18n';
+import type { PageId } from '../data/i18n/routing';
+import { defaultLocale, type LocaleCode } from '../data/i18n/locales';
+import { getRelatedPageLinks, type InternalLink } from '../data/internal-links';
+
+interface Props {
+	locale?: LocaleCode;
+	pageId?: PageId;
+	title?: string;
+	links?: InternalLink[];
+}
+
+const locale = Astro.props.locale ?? defaultLocale;
+const ui = getUi(locale);
+const links =
+	Astro.props.links ??
+	(Astro.props.pageId ? getRelatedPageLinks(Astro.props.pageId, locale) : []);
+const title = Astro.props.title ?? ui.common.relatedPages;
+---
+
+{
+	links.length > 0 && (
+		<nav class="related-pages" aria-label={title}>
+			<h2>{title}</h2>
+			<ul>
+				{links.map((link) => (
+					<li>
+						<a href={link.href}>
+							<span>{link.label}</span>
+							<span class="related-pages__arrow" aria-hidden="true" />
+						</a>
+					</li>
+				))}
+			</ul>
+		</nav>
+	)
+}
+
+<style>
+	.related-pages {
+		padding: 1.1rem 1.15rem;
+		border: 1px solid var(--line);
+		border-radius: var(--radius-md);
+		background: var(--bg-panel);
+	}
+
+	.related-pages h2 {
+		margin: 0 0 0.55rem;
+		font-family: var(--font-display);
+		font-size: 1.05rem;
+		font-weight: 800;
+		letter-spacing: -0.02em;
+		color: var(--ink);
+	}
+
+	.related-pages ul {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 0.4rem;
+	}
+
+	.related-pages a {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 0.65rem;
+		min-height: var(--touch-min, 2.75rem);
+		padding: 0.55rem 0.8rem;
+		border: 1px solid var(--line);
+		border-radius: var(--radius-sm, 0.55rem);
+		background: var(--bg-elevated);
+		color: var(--ink);
+		font-size: 0.875rem;
+		font-weight: 600;
+		text-decoration: none;
+		transition:
+			border-color 0.15s ease,
+			color 0.15s ease;
+	}
+
+	.related-pages a:hover {
+		border-color: color-mix(in srgb, var(--magenta) 40%, var(--line));
+		color: var(--magenta-soft);
+	}
+
+	.related-pages__arrow {
+		width: 0.35rem;
+		height: 0.35rem;
+		flex-shrink: 0;
+		border-right: 1.5px solid currentColor;
+		border-bottom: 1.5px solid currentColor;
+		transform: rotate(-45deg);
+		opacity: 0.7;
+	}
+
+	@media (max-width: 560px) {
+		.related-pages ul {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>

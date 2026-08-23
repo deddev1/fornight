@@ -50,22 +50,38 @@ export const simplePageCopy: Partial<Record<PageId, SimplePageCopy>> = {
 			{
 				h2: 'ESP & wallhack',
 				paragraphs: ['See players, loot, and vehicles through walls.'],
-				list: ['Player boxes & distance', 'Loot and reboot markers', 'Team colours on / off'],
+				list: [
+					'<a href="/fortnite-esp/">ESP</a> boxes & distance',
+					'<a href="/fortnite-wallhack/">Wallhack</a> loot markers',
+					'Team colours on / off',
+				],
 			},
 			{
 				h2: 'Aimbot & soft aim',
 				paragraphs: ['Aim help you can tune to feel natural.'],
-				list: ['Smooth aim strength', 'FOV and bone priority', 'Hotkeys mid-match'],
+				list: [
+					'<a href="/fortnite-aimbot/">Aimbot</a> strength',
+					'<a href="/fortnite-soft-aim/">Soft aim</a> FOV',
+					'Hotkeys mid-match',
+				],
 			},
 			{
 				h2: 'Radar',
 				paragraphs: ['A simple 2D radar for threats outside your view.'],
-				list: ['Nearby enemy cues', 'Adjustable range', 'Works in BR & Zero Build'],
+				list: [
+					'<a href="/fortnite-radar-hack/">Radar</a> enemy cues',
+					'Adjustable range',
+					'Works in BR & Zero Build',
+				],
 			},
 			{
 				h2: 'Updates & support',
 				paragraphs: ['We rebuild after big {game} or {antiCheat} patches.'],
-				list: ['Status on the Status page', 'Setup guide included', 'Email support with your order ID'],
+				list: [
+					'<a href="/updates/">Status</a> after patches',
+					'<a href="/setup/">Setup</a> guide included',
+					'<a href="/support/">Support</a> with your order ID',
+				],
 			},
 		],
 	}),
@@ -108,7 +124,10 @@ export const simplePageCopy: Partial<Record<PageId, SimplePageCopy>> = {
 			{
 				h2: 'Current status',
 				paragraphs: ['We post a note when a new build is live after a game or anti-cheat update.'],
-				list: ['Check this page before queueing', 'Monthly and lifetime get rebuilds while active'],
+				list: [
+					'Check this page before queueing',
+					'<a href="/pricing/">Store</a> plans include rebuilds while active',
+				],
 			},
 			{
 				h2: 'After a patch',
@@ -135,7 +154,12 @@ export const simplePageCopy: Partial<Record<PageId, SimplePageCopy>> = {
 			{
 				h2: 'What it is',
 				paragraphs: ['One package for {game} on Windows PC.'],
-				list: ['ESP / wallhack', 'Soft aim & aimbot', '2D radar', 'Patch updates'],
+				list: [
+					'<a href="/fortnite-esp/">ESP</a> / wallhack',
+					'<a href="/fortnite-aimbot/">Aimbot</a> & soft aim',
+					'<a href="/fortnite-radar-hack/">Radar</a>',
+					'<a href="/updates/">Status</a> after patches',
+				],
 			},
 			{
 				h2: 'How to start',

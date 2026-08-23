@@ -98,7 +98,7 @@ export const homeFaqs: readonly FaqItem[] = [
 	faq({
 		question: 'What is {brand}?',
 		answer:
-			'{brand} is an undetected {primaryKeyword} package for Windows PC — also searched as {game} cheats and {game} hack. It includes ESP wallhack, 2D radar, and aimbot controls, with {antiCheat} maintenance and setup support.',
+			'{brand} is an undetected {primaryKeyword} package for Windows PC — also searched as {game} cheats and {game} hack. It includes ESP wallhack, 2D radar, and aimbot controls, with {antiCheat} maintenance and setup support. See <a href="/features/">Features</a> for what is included.',
 		slug: 'what-are-fortnite-cheats',
 		seoTitle: 'What is {brand}? | FAQ',
 		seoDescription:
@@ -107,7 +107,7 @@ export const homeFaqs: readonly FaqItem[] = [
 	faq({
 		question: 'Are {primaryKeyword} undetected in 2026?',
 		answer:
-			'{brand} is maintained for {game} with rebuilds after {antiCheat} and game patches. Check the Status page before you queue. No cheat can guarantee permanent undetected status — maintenance and responsible use matter.',
+			'{brand} is maintained for {game} with rebuilds after {antiCheat} and game patches. Check the <a href="/updates/">Status</a> page before you queue. No cheat can guarantee permanent undetected status — maintenance and responsible use matter.',
 		slug: 'are-fortnite-cheats-undetected-in-2026',
 		seoTitle: 'Are {brand} Undetected in 2026? | FAQ',
 		seoDescription:
@@ -125,7 +125,7 @@ export const homeFaqs: readonly FaqItem[] = [
 	faq({
 		question: 'What is included — ESP, wallhack, radar, or Aimbot?',
 		answer:
-			'{brand} bundles ESP wallhack, chest markers, 2D radar cues, and configurable Aimbot in one license. See Features for the full list.',
+			'{brand} bundles ESP wallhack, chest markers, 2D radar cues, and configurable Aimbot in one license. See <a href="/features/">Features</a> for the full list.',
 		slug: 'esp-wallhack-radar-or-aimbot',
 		seoTitle: 'What Is Included: ESP, Wallhack, Radar, Aimbot | FAQ',
 		seoDescription:
@@ -134,7 +134,7 @@ export const homeFaqs: readonly FaqItem[] = [
 	faq({
 		question: 'How are licenses delivered?',
 		answer:
-			'After payment is confirmed, {brand} license details are delivered digitally through checkout. Timing can vary by payment method and order review. Keep your order confirmation ready if you contact support.',
+			'After payment is confirmed, {brand} license details are delivered digitally through checkout. Timing can vary by payment method and order review. Keep your order confirmation ready if you contact <a href="/support/">Support</a>.',
 		slug: 'how-are-licenses-delivered',
 		seoTitle: 'How Are {brand} Licenses Delivered? | FAQ',
 		seoDescription:
@@ -143,7 +143,7 @@ export const homeFaqs: readonly FaqItem[] = [
 	faq({
 		question: 'Where do I check updates after a {game} or {antiCheat} patch?',
 		answer:
-			'Maintenance notes are posted on the Status page when a {game} or {antiCheat} update affects the package. That is the fastest place to confirm whether a new {brand} build is live.',
+			'Maintenance notes are posted on the <a href="/updates/">Status</a> page when a {game} or {antiCheat} update affects the package. That is the fastest place to confirm whether a new {brand} build is live.',
 		slug: 'where-to-check-updates',
 		seoTitle: 'Where to Check {game} / {antiCheat} Updates | FAQ',
 		seoDescription:
@@ -152,7 +152,7 @@ export const homeFaqs: readonly FaqItem[] = [
 	faq({
 		question: 'How do I contact support?',
 		answer:
-			'Use the Support page or email {email}. Include your order details, package length, and a clear description of the setup issue so replies can be faster.',
+			'Use the <a href="/support/">Support</a> page or email {email}. Include your order details, package length, and a clear description of the setup issue so replies can be faster.',
 		slug: 'how-to-contact-support',
 		seoTitle: 'How to Contact {brand} Support | FAQ',
 		seoDescription:
@@ -165,7 +165,7 @@ export const seoFaqs: readonly FaqItem[] = [
 	faq({
 		question: 'What is a {game} wallhack?',
 		answer:
-			'A {game} wallhack is an ESP overlay that shows players, builds, and loot through walls. {brand} includes distance readouts, zone cues, and toggleable categories.',
+			'A {game} wallhack is an ESP overlay that shows players, builds, and loot through walls. {brand} includes distance readouts, zone cues, and toggleable categories. Read the <a href="/fortnite-wallhack/">wallhack</a> and <a href="/fortnite-esp/">ESP</a> pages for details.',
 		slug: 'what-is-a-fortnite-wallhack',
 		seoTitle: 'What Is a {game} Wallhack? | FAQ',
 		seoDescription:
@@ -174,7 +174,7 @@ export const seoFaqs: readonly FaqItem[] = [
 	faq({
 		question: 'Does {brand} include a radar hack?',
 		answer:
-			'Yes. {brand} includes 2D radar overlays that highlight nearby threats outside your view — useful for flanks and reboot holds.',
+			'Yes. {brand} includes 2D radar overlays that highlight nearby threats outside your view — useful for flanks and reboot holds. See <a href="/fortnite-radar-hack/">Radar</a> for how it works.',
 		slug: 'does-fortnite-cheats-include-radar-hack',
 		seoTitle: 'Does {brand} Include a Radar Hack? | FAQ',
 		seoDescription:
@@ -183,7 +183,7 @@ export const seoFaqs: readonly FaqItem[] = [
 	faq({
 		question: 'How does {antiCheat} affect {primaryKeyword}?',
 		answer:
-			'{antiCheat} monitors {game} on Windows PC. {brand} posts maintenance notes after patches that may need a rebuild. Check Status before you queue.',
+			'{antiCheat} monitors {game} on Windows PC. {brand} posts maintenance notes after patches that may need a rebuild. Check <a href="/updates/">Status</a> before you queue.',
 		slug: 'eac-anti-cheat-and-fortnite-cheats',
 		seoTitle: 'How {antiCheat} Affects {brand} | FAQ',
 		seoDescription:
@@ -192,7 +192,7 @@ export const seoFaqs: readonly FaqItem[] = [
 	faq({
 		question: 'Can I buy undetected {game} cheats for Windows PC?',
 		answer:
-			'Yes — {brand} sells monthly and lifetime licenses for Windows PC with ESP, radar, and aimbot in one stack. Compare plans on Store before checkout.',
+			'Yes — {brand} sells monthly and lifetime licenses for Windows PC with ESP, radar, and aimbot in one stack. Compare plans on <a href="/pricing/">Store</a> before checkout.',
 		slug: 'buy-undetected-fortnite-cheats-windows-pc',
 		seoTitle: 'Buy Undetected {game} Cheats for Windows PC | FAQ',
 		seoDescription:

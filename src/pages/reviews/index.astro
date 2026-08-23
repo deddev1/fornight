@@ -7,6 +7,8 @@ import { brandCopy, brandSeo, seoPageTitle } from '../../data/site-core';
 import { seoDescription } from '../../data/brand';
 import { getSelfHreflangAlternates } from '../../data/i18n/routing';
 import { getReviewPath, reviewsBasePath } from '../../data/reviews';
+import { getHubLinks } from '../../data/internal-links';
+import RelatedPages from '../../components/RelatedPages.astro';
 
 const title = seoPageTitle(brandSeo.reviewsTitle);
 const description = seoDescription(brandSeo.reviewsDescription);
@@ -31,6 +33,7 @@ const sortedReviews = [...customerReviews].sort((a, b) => (a.date < b.date ? 1 :
 
 const canonicalURL = new URL(reviewsBasePath, siteConfig.url).href;
 const hreflangAlternates = getSelfHreflangAlternates(reviewsBasePath);
+const hubLinks = getHubLinks('en');
 
 const extraGraph: Record<string, unknown>[] = [
 	{
@@ -152,6 +155,7 @@ const extraGraph: Record<string, unknown>[] = [
 					<a href="/pricing/" class="reviews-index__link-btn">Compare pricing</a>
 				</div>
 			</section>
+			<RelatedPages links={hubLinks} title="Related pages" />
 		</div>
 	</main>
 	<SiteFooter />

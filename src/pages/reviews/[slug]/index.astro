@@ -6,6 +6,8 @@ import { customerReviewStats, customerReviews, productInfo, siteConfig } from '.
 import { getSelfHreflangAlternates } from '../../../data/i18n/routing';
 import { getReviewPath, reviewsBasePath } from '../../../data/reviews';
 import type { CustomerReview } from '../../../data/site';
+import { getHubLinks } from '../../../data/internal-links';
+import RelatedPages from '../../../components/RelatedPages.astro';
 
 export function getStaticPaths() {
 	return customerReviews.map((review) => ({
@@ -36,6 +38,7 @@ const currentIndex = customerReviews.findIndex((r) => r.slug === review.slug);
 const moreReviews = [1, 2, 3].map(
 	(offset) => customerReviews[(currentIndex + offset) % customerReviews.length],
 );
+const hubLinks = getHubLinks('en');
 
 const extraGraph: Record<string, unknown>[] = [
 	{
@@ -150,6 +153,7 @@ const extraGraph: Record<string, unknown>[] = [
 					<a href={reviewsBasePath}>All {customerReviewStats.totalCount} {siteConfig.name} reviews</a>
 				</p>
 			</section>
+			<RelatedPages links={hubLinks} title="Related pages" />
 			</div>
 		</div>
 	</main>
