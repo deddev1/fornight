@@ -1,11 +1,27 @@
 ---
-import { customerReviews, customerReviewStats } from '../data/site';
-import { getReviewPath, reviewsBasePath } from '../data/reviews';
+import { customerReviews, customerReviewStats, siteConfig } from '../data/site';
+import { defaultLocale, type LocaleCode } from '../data/i18n/locales';
+import { getChrome } from '../data/i18n/chrome';
+import { fillChrome } from '../data/i18n/fill';
+import { getReviewArticlePath, getReviewsIndexPath } from '../data/i18n/routing';
 
+interface Props {
+	locale?: LocaleCode;
+}
+
+const locale = Astro.props.locale ?? defaultLocale;
+const chrome = getChrome(locale);
 const reviews = [...customerReviews];
+const reviewsIndexHref = getReviewsIndexPath(locale);
+const reviewsHeading = fillChrome(chrome.moreGameReviews, { game: siteConfig.game });
+const reviewsScoreLabel = fillChrome(chrome.reviewsOutOf5, { count: customerReviewStats.totalCount });
+const reviewsAllLabel = fillChrome(chrome.allNamedReviews, {
+	count: customerReviewStats.totalCount,
+	name: siteConfig.name,
+});
 
 function formatDate(iso: string) {
-	return new Date(`${iso}T12:00:00`).toLocaleDateString('en-US', {
+	return new Date(`${iso}T12:00:00`).toLocaleDateString(locale, {
 		month: 'long',
 		year: 'numeric',
 	});
@@ -20,10 +36,10 @@ function initial(handle: string) {
 	<div class="shell">
 		<header class="reviews__head">
 			<div class="reviews__head-copy">
-				<p class="reviews__eyebrow">Reviews</p>
-				<h2 id="reviews-title">Fortnite Cheats reviews</h2>
+				<p class="reviews__eyebrow">{chrome.navReviews}</p>
+				<h2 id="reviews-title">{reviewsHeading}</h2>
 			</div>
-			<div class="reviews__score" aria-label={`${customerReviewStats.averageRating.toFixed(1)} average from ${customerReviewStats.totalCount} reviews`}>
+			<div class="reviews__score" aria-label={`${customerReviewStats.averageRating.toFixed(1)} · ${reviewsScoreLabel}`}>
 				<strong>{customerReviewStats.averageRating.toFixed(1)}</strong>
 				<div>
 					<span class="reviews__stars" aria-hidden="true">
@@ -33,7 +49,7 @@ function initial(handle: string) {
 							</svg>
 						))}
 					</span>
-					<p>{customerReviewStats.totalCount} verified reviews</p>
+					<p>{reviewsScoreLabel}</p>
 				</div>
 			</div>
 		</header>
@@ -57,7 +73,7 @@ function initial(handle: string) {
 												copy === 1 ? (
 													<span class="review-card__name">{review.handle}</span>
 												) : (
-													<a class="review-card__name" href={getReviewPath(review.slug)}>
+													<a class="review-card__name" href={getReviewArticlePath(review.slug, locale)}>
 														{review.handle}
 													</a>
 												)
@@ -79,7 +95,7 @@ function initial(handle: string) {
 
 	<div class="shell">
 		<p class="reviews__more">
-			<a href={reviewsBasePath}>Read all reviews →</a>
+			<a href={reviewsIndexHref}>{reviewsAllLabel}</a>
 		</p>
 	</div>
 </section>

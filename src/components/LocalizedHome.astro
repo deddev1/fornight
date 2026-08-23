@@ -6,7 +6,7 @@ import HomeReviews from '../components/HomeReviews.astro';
 import HomeSeo from '../components/HomeSeo.astro';
 import SiteFooter from '../components/SiteFooter.astro';
 import { getLocaleContent, getPageContent } from '../data/i18n';
-import { getLocalizedPath } from '../data/i18n/routing';
+import { getLocalizedPath, getFaqArticlePath } from '../data/i18n/routing';
 import type { LocaleCode } from '../data/i18n/locales';
 import { homeFaqs, homeSeo, productInfo, siteConfig, seoKeywords, customerReviewStats, customerReviews } from '../data/site';
 import { fortniteImages } from '../data/fortnite';
@@ -92,7 +92,7 @@ const extraGraph: Record<string, unknown>[] = [
 		mainEntity: homeFaqs.map((item) => ({
 			'@type': 'Question',
 			name: item.question,
-			url: `${siteConfig.url}/faq/${item.slug}/`,
+			url: new URL(getFaqArticlePath(item.slug, locale), siteConfig.url).href,
 			acceptedAnswer: {
 				'@type': 'Answer',
 				text: item.answer,
@@ -111,35 +111,16 @@ const extraGraph: Record<string, unknown>[] = [
 	locale={locale}
 	pageId="home"
 	breadcrumbs={[{ label: ui.nav.home }]}
-	extraGraph={locale === 'en' ? extraGraph : extraGraph.filter((n) => n['@type'] !== 'FAQPage')}
+	extraGraph={extraGraph}
 	lcpImage={heroPreloadSrc}
 	lcpImageSizes={heroSizes}
 >
 	<Navbar locale={locale} pageId="home" />
 	<main class="home">
 		<Hero locale={locale} />
-		<HomeReviews />
+		<HomeReviews locale={locale} />
 		<div class="home__seo">
-			{
-				locale === 'en' ? (
-					<HomeSeo />
-				) : (
-					<div class="shell home__prose">
-						<h2>{home.h1}</h2>
-						<p>{home.intro}</p>
-						{
-							home.sections.map((section) => (
-								<div>
-									<h3>{section.h2}</h3>
-									{section.paragraphs.map((p) => (
-										<p set:html={p} />
-									))}
-								</div>
-							))
-						}
-					</div>
-				)
-			}
+			<HomeSeo locale={locale} />
 		</div>
 		<SiteFooter locale={locale} />
 	</main>

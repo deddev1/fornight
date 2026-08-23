@@ -1,0 +1,18 @@
+---
+import ReviewsIndexPage from '../../../components/ReviewsIndexPage.astro';
+import { defaultLocale, isLocaleCode, localeCodes, type LocaleCode } from '../../../data/i18n/locales';
+
+export function getStaticPaths() {
+	return localeCodes
+		.filter((code) => code !== defaultLocale)
+		.map((lang) => ({ params: { lang }, props: { locale: lang } }));
+}
+
+const { locale } = Astro.props as { locale: LocaleCode };
+
+if (!isLocaleCode(Astro.params.lang ?? '')) {
+	return Astro.redirect('/');
+}
+---
+
+<ReviewsIndexPage locale={locale} />

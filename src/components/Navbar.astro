@@ -1,8 +1,9 @@
 ---
 import LanguageSwitcher from './LanguageSwitcher.astro';
-import { getLocalizedPath, resolvePageContextFromPath, type PageId } from '../data/i18n/routing';
+import { getLocalizedPath, getReviewsIndexPath, resolvePageContextFromPath, type PageId } from '../data/i18n/routing';
 import { defaultLocale, type LocaleCode } from '../data/i18n/locales';
-import { reviewsBasePath } from '../data/reviews';
+import { getUi } from '../data/i18n';
+import { getChrome } from '../data/i18n/chrome';
 import { siteConfig } from '../data/site';
 import { brandCopy } from '../data/site-core';
 import { fillBrandTokens } from '../data/brand';
@@ -16,41 +17,44 @@ const { locale = defaultLocale, pageId: pageIdProp } = Astro.props;
 const pathContext = resolvePageContextFromPath(Astro.url.pathname);
 const pageId = pageIdProp ?? pathContext.pageId ?? 'home';
 const current = Astro.url.pathname;
+const chrome = getChrome(locale);
+const ui = getUi(locale);
+const isEnglish = locale === 'en';
 
 const links = [
 	{
 		id: 'hacks',
-		label: fillBrandTokens(brandCopy.navPreview),
+		label: isEnglish ? fillBrandTokens(brandCopy.navPreview) : chrome.navPreview,
 		edit: 'navPreview',
 		href: getLocalizedPath('hacks', locale),
 	},
 	{
 		id: 'esp',
-		label: fillBrandTokens(brandCopy.navFeatures),
+		label: isEnglish ? fillBrandTokens(brandCopy.navFeatures) : chrome.navFeatures,
 		edit: 'navFeatures',
 		href: getLocalizedPath('features', locale),
 	},
 	{
 		id: 'pricing',
-		label: fillBrandTokens(brandCopy.navStore),
+		label: isEnglish ? fillBrandTokens(brandCopy.navStore) : chrome.navStore,
 		edit: 'navStore',
 		href: getLocalizedPath('pricing', locale),
 	},
 	{
 		id: 'updates',
-		label: fillBrandTokens(brandCopy.navStatus),
+		label: isEnglish ? fillBrandTokens(brandCopy.navStatus) : chrome.navStatus,
 		edit: 'navStatus',
 		href: getLocalizedPath('updates', locale),
 	},
 	{
 		id: 'reviews',
-		label: fillBrandTokens(brandCopy.navReviews),
+		label: isEnglish ? fillBrandTokens(brandCopy.navReviews) : chrome.navReviews,
 		edit: 'navReviews',
-		href: reviewsBasePath,
+		href: getReviewsIndexPath(locale),
 	},
 ] as const;
 
-const buyShort = fillBrandTokens(brandCopy.ctaBuyShort);
+const buyShort = isEnglish ? fillBrandTokens(brandCopy.ctaBuyShort) : ui.nav.buyNow;
 
 const icons: Record<(typeof links)[number]['id'], string> = {
 	hacks:
@@ -66,7 +70,9 @@ const icons: Record<(typeof links)[number]['id'], string> = {
 
 const isActive = (href: string) => {
 	if (href === '/') return current === '/' || current === `/${locale}/`;
-	if (href === reviewsBasePath) return current === href || current.startsWith(`${href}`);
+	if (href === getReviewsIndexPath(locale) || href.endsWith('/reviews/')) {
+		return current === href || current.startsWith(href);
+	}
 	return current === href || current.startsWith(href);
 };
 ---

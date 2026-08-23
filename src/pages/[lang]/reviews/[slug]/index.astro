@@ -1,0 +1,24 @@
+---
+import ReviewArticlePage from '../../../../components/ReviewArticlePage.astro';
+import { customerReviews, type CustomerReview } from '../../../../data/site';
+import { defaultLocale, isLocaleCode, localeCodes, type LocaleCode } from '../../../../data/i18n/locales';
+
+export function getStaticPaths() {
+	return localeCodes
+		.filter((code) => code !== defaultLocale)
+		.flatMap((lang) =>
+			customerReviews.map((review) => ({
+				params: { lang, slug: review.slug },
+				props: { locale: lang, review },
+			})),
+		);
+}
+
+const { locale, review } = Astro.props as { locale: LocaleCode; review: CustomerReview };
+
+if (!isLocaleCode(Astro.params.lang ?? '')) {
+	return Astro.redirect('/');
+}
+---
+
+<ReviewArticlePage locale={locale} review={review} />

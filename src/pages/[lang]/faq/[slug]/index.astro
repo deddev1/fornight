@@ -1,0 +1,24 @@
+---
+import FaqArticlePage from '../../../../components/FaqArticlePage.astro';
+import { seoFaqs, type FaqItem } from '../../../../data/site';
+import { defaultLocale, isLocaleCode, localeCodes, type LocaleCode } from '../../../../data/i18n/locales';
+
+export function getStaticPaths() {
+	return localeCodes
+		.filter((code) => code !== defaultLocale)
+		.flatMap((lang) =>
+			seoFaqs.map((faq) => ({
+				params: { lang, slug: faq.slug },
+				props: { locale: lang, faq },
+			})),
+		);
+}
+
+const { locale, faq } = Astro.props as { locale: LocaleCode; faq: FaqItem };
+
+if (!isLocaleCode(Astro.params.lang ?? '')) {
+	return Astro.redirect('/');
+}
+---
+
+<FaqArticlePage locale={locale} faq={faq} />

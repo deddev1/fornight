@@ -1,46 +1,62 @@
 ---
 import { homeFaqs } from '../data/site';
-import { getFaqPath } from '../data/faq';
+import { getUi } from '../data/i18n';
+import { getChrome } from '../data/i18n/chrome';
+import {
+	getBlogIndexPath,
+	getFaqArticlePath,
+	getLocalizedPath,
+	getReviewsIndexPath,
+} from '../data/i18n/routing';
+import { defaultLocale, type LocaleCode } from '../data/i18n/locales';
+
+interface Props {
+	locale?: LocaleCode;
+}
+
+const locale = Astro.props.locale ?? defaultLocale;
+const chrome = getChrome(locale);
+const ui = getUi(locale);
 
 const categories = [
 	{
-		title: 'Features',
-		hint: 'What is included',
+		title: chrome.catFeatures,
+		hint: chrome.hintFeatures,
 		links: [
-			{ href: '/features/', label: 'All features' },
-			{ href: '/fortnite-esp/', label: 'ESP' },
-			{ href: '/fortnite-aimbot/', label: 'Aimbot' },
-			{ href: '/fortnite-radar-hack/', label: 'Radar' },
+			{ href: getLocalizedPath('features', locale), label: chrome.allFeatures },
+			{ href: getLocalizedPath('fortnite-esp', locale), label: ui.nav.esp },
+			{ href: getLocalizedPath('fortnite-aimbot', locale), label: ui.nav.aimbot },
+			{ href: getLocalizedPath('radar', locale), label: 'Radar' },
 		],
 	},
 	{
-		title: 'Status',
-		hint: 'Before you play',
+		title: chrome.catStatus,
+		hint: chrome.hintStatus,
 		links: [
-			{ href: '/updates/', label: 'Live status' },
-			{ href: '/undetected-fortnite-cheats/', label: 'Undetected' },
-			{ href: '/eac-bypass/', label: 'Easy Anti-Cheat' },
-			{ href: '/setup/', label: 'Setup' },
+			{ href: getLocalizedPath('updates', locale), label: chrome.liveStatus },
+			{ href: getLocalizedPath('undetected', locale), label: chrome.undetected },
+			{ href: getLocalizedPath('eac-bypass', locale), label: chrome.eac },
+			{ href: getLocalizedPath('setup', locale), label: chrome.setup },
 		],
 	},
 	{
-		title: 'Store',
-		hint: 'Buy & plans',
+		title: chrome.catStore,
+		hint: chrome.hintStore,
 		links: [
-			{ href: '/pricing/', label: 'Plans' },
-			{ href: '/reviews/', label: 'Reviews' },
-			{ href: '/fortnite-cheats/', label: 'Preview' },
-			{ href: '/faq/', label: 'FAQ' },
+			{ href: getLocalizedPath('pricing', locale), label: chrome.plansLink },
+			{ href: getReviewsIndexPath(locale), label: chrome.reviewsLink },
+			{ href: getLocalizedPath('hacks', locale), label: chrome.previewLink },
+			{ href: getLocalizedPath('faq', locale), label: chrome.faqLink },
 		],
 	},
 	{
-		title: 'Help',
-		hint: 'Need a hand',
+		title: chrome.catHelp,
+		hint: chrome.hintHelp,
 		links: [
-			{ href: '/support/', label: 'Support' },
-			{ href: '/setup/', label: 'Setup guide' },
-			{ href: '/blog/', label: 'Blog' },
-			{ href: '/refund-policy/', label: 'Refunds' },
+			{ href: getLocalizedPath('support', locale), label: chrome.supportLink },
+			{ href: getLocalizedPath('setup', locale), label: chrome.setupGuide },
+			{ href: getBlogIndexPath(locale), label: chrome.blogLink },
+			{ href: getLocalizedPath('refund', locale), label: chrome.refundsLink },
 		],
 	},
 ];
@@ -49,9 +65,9 @@ const categories = [
 <section class="home-seo shell" aria-labelledby="home-seo-title">
 	<header class="home-seo__head">
 		<div>
-			<p class="home-seo__eyebrow">Guides</p>
-			<h2 id="home-seo-title">Browse by category</h2>
-			<p class="home-seo__lede">Short links for features, status, store, and help.</p>
+			<p class="home-seo__eyebrow">{chrome.guides}</p>
+			<h2 id="home-seo-title">{chrome.browseByCategory}</h2>
+			<p class="home-seo__lede">{chrome.browseLede}</p>
 		</div>
 	</header>
 
@@ -81,11 +97,11 @@ const categories = [
 	<section class="home-seo__faq" aria-labelledby="home-faq-title">
 		<header class="home-seo__faq-head">
 			<div>
-				<p class="home-seo__eyebrow">FAQ</p>
-				<h3 id="home-faq-title">Before you buy</h3>
-				<p class="home-seo__faq-lede">Delivery, detection status, and what is included.</p>
+				<p class="home-seo__eyebrow">{chrome.faqEyebrow}</p>
+				<h3 id="home-faq-title">{chrome.beforeYouBuy}</h3>
+				<p class="home-seo__faq-lede">{chrome.faqHomeLede}</p>
 			</div>
-			<a class="home-seo__faq-link" href="/faq/">All answers</a>
+			<a class="home-seo__faq-link" href={getLocalizedPath('faq', locale)}>{chrome.allAnswers}</a>
 		</header>
 		<div class="home-seo__faq-list">
 			{
@@ -97,8 +113,8 @@ const categories = [
 						</summary>
 						<div class="home-seo__item-body">
 							<p>{item.answer}</p>
-							<a class="home-seo__item-link" href={getFaqPath(item.slug)}>
-								Open full page
+							<a class="home-seo__item-link" href={getFaqArticlePath(item.slug, locale)}>
+								{chrome.openFullPage}
 							</a>
 						</div>
 					</details>
