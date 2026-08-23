@@ -1,8 +1,15 @@
 ---
 import { customerReviews, customerReviewStats } from '../data/site';
-import { getReviewPath, reviewsBasePath } from '../data/reviews';
+import { defaultLocale, type LocaleCode } from '../data/i18n/locales';
+import { getReviewArticlePath, getReviewsIndexPath } from '../data/i18n/routing';
 
+interface Props {
+	locale?: LocaleCode;
+}
+
+const locale = Astro.props.locale ?? defaultLocale;
 const reviews = [...customerReviews];
+const reviewsIndexHref = getReviewsIndexPath(locale);
 
 function formatDate(iso: string) {
 	return new Date(`${iso}T12:00:00`).toLocaleDateString('en-US', {
@@ -57,7 +64,7 @@ function initial(handle: string) {
 												copy === 1 ? (
 													<span class="review-card__name">{review.handle}</span>
 												) : (
-													<a class="review-card__name" href={getReviewPath(review.slug)}>
+													<a class="review-card__name" href={getReviewArticlePath(review.slug, locale)}>
 														{review.handle}
 													</a>
 												)
@@ -79,7 +86,7 @@ function initial(handle: string) {
 
 	<div class="shell">
 		<p class="reviews__more">
-			<a href={reviewsBasePath}>Read all reviews →</a>
+			<a href={reviewsIndexHref}>Read all reviews →</a>
 		</p>
 	</div>
 </section>

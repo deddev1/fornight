@@ -20,7 +20,11 @@ const pageContext = onBlog
 	? pathContext
 	: {
 			...pathContext,
-			pageId: pathContext.pageId ?? pageIdFallback ?? 'home',
+			pageId:
+				pathContext.pageId ??
+				(pathContext.faqSlug || pathContext.isReviewsIndex || pathContext.reviewSlug
+					? undefined
+					: (pageIdFallback ?? 'home')),
 		};
 
 function localeSwitchHref(targetLocale: LocaleCode): string {

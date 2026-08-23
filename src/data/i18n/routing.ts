@@ -695,6 +695,22 @@ export function localizeInternalHref(href: string, locale: LocaleCode): string {
 			return getLocalizedPath(pageId, locale);
 		}
 	}
+	if (withSlash.startsWith('/faq/') && withSlash !== '/faq/') {
+		const slug = withSlash.slice('/faq/'.length).replace(/\/+$/, '');
+		return getFaqArticlePath(slug, locale);
+	}
+	if (withSlash === '/reviews/') {
+		return getReviewsIndexPath(locale);
+	}
+	if (withSlash.startsWith('/reviews/')) {
+		const slug = withSlash.slice('/reviews/'.length).replace(/\/+$/, '');
+		return getReviewArticlePath(slug, locale);
+	}
+	if (withSlash === '/blog/' || withSlash.startsWith('/blog/')) {
+		const rest = withSlash.slice('/blog/'.length);
+		const base = getBlogIndexPath(locale);
+		return rest ? `${base}${rest}` : base;
+	}
 	return href;
 }
 
@@ -716,6 +732,28 @@ export function absoluteLocalizedUrl(pageId: PageId, locale: LocaleCode): string
 export type HreflangAlternate = { hreflang: string; href: string };
 
 /** Self-referential hreflang for single-locale pages (reviews, 404). */
+export function getPathHreflangAlternates(
+	pathForLocale: (locale: LocaleCode) => string,
+	currentLocale: LocaleCode = defaultLocale,
+) {
+	const byLocale = localeCodes.map((code) => ({
+		hreflang: localeMap[code].hreflang,
+		href: buildCanonicalUrl(pathForLocale(code)),
+		code,
+	}));
+	const self = byLocale.find((alt) => alt.code === currentLocale)!;
+	const others = byLocale.filter((alt) => alt.code !== currentLocale);
+	const xDefault = {
+		hreflang: 'x-default' as const,
+		href: buildCanonicalUrl(pathForLocale(defaultLocale)),
+	};
+	return [
+		{ hreflang: self.hreflang, href: self.href },
+		...others.map(({ hreflang, href }) => ({ hreflang, href })),
+		xDefault,
+	];
+}
+
 export function getSelfHreflangAlternates(
 	path: string,
 	locale: LocaleCode = defaultLocale,
@@ -761,7 +799,26 @@ export type PageContext = {
 	pageId?: PageId;
 	isBlogIndex?: boolean;
 	blogSlug?: string;
+	faqSlug?: string;
+	isReviewsIndex?: boolean;
+	reviewSlug?: string;
 };
+
+export function getFaqArticlePath(slug: string, locale: LocaleCode): string {
+	return locale === defaultLocale ? `/faq/${slug}/` : `/${locale}/faq/${slug}/`;
+}
+
+export function getReviewsIndexPath(locale: LocaleCode): string {
+	return locale === defaultLocale ? '/reviews/' : `/${locale}/reviews/`;
+}
+
+export function getReviewArticlePath(slug: string, locale: LocaleCode): string {
+	return locale === defaultLocale ? `/reviews/${slug}/` : `/${locale}/reviews/${slug}/`;
+}
+
+export function getBlogIndexPath(locale: LocaleCode): string {
+	return locale === defaultLocale ? '/blog/' : `/${locale}/blog/`;
+}
 
 function normalizePathname(pathname: string): string {
 	if (!pathname || pathname === '/') return '/';
@@ -799,6 +856,17 @@ export function resolvePageContextFromPath(pathname: string): PageContext {
 		return { locale, blogSlug: rest[1] };
 	}
 
+	if (rest[0] === 'faq' && rest[1]) {
+		return { locale, faqSlug: rest[1] };
+	}
+
+	if (rest[0] === 'reviews') {
+		if (rest.length === 1) {
+			return { locale, isReviewsIndex: true };
+		}
+		return { locale, reviewSlug: rest[1] };
+	}
+
 	if (locale === defaultLocale) {
 		return { locale, pageId: resolvePageIdFromPath(path) };
 	}
@@ -810,6 +878,15 @@ export function resolvePageContextFromPath(pathname: string): PageContext {
 export function getPageLocaleSwitchHref(context: PageContext, targetLocale: LocaleCode): string {
 	if (context.pageId) {
 		return getLocalizedPath(context.pageId, targetLocale);
+	}
+	if (context.faqSlug) {
+		return getFaqArticlePath(context.faqSlug, targetLocale);
+	}
+	if (context.isReviewsIndex) {
+		return getReviewsIndexPath(targetLocale);
+	}
+	if (context.reviewSlug) {
+		return getReviewArticlePath(context.reviewSlug, targetLocale);
 	}
 	return getLocalizedPath('home', targetLocale);
 }

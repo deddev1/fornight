@@ -1,8 +1,9 @@
 ---
 import { getUi } from '../data/i18n';
-import { getLocalizedPath } from '../data/i18n/routing';
+import { getLocalizedPath, getReviewsIndexPath } from '../data/i18n/routing';
 import { defaultLocale, type LocaleCode } from '../data/i18n/locales';
 import { getBlogBasePath } from '../data/blog/helpers';
+import { getChrome } from '../data/i18n/chrome';
 import { siteConfig } from '../data/site';
 
 interface Props {
@@ -11,6 +12,7 @@ interface Props {
 
 const locale = Astro.props.locale ?? defaultLocale;
 const ui = getUi(locale);
+const chrome = getChrome(locale);
 
 const explore = [
 	{ label: ui.nav.hacks ?? 'Hacks', href: getLocalizedPath('hacks', locale) },
@@ -26,7 +28,7 @@ const explore = [
 const help = [
 	{ label: ui.nav.setup, href: getLocalizedPath('setup', locale) },
 	{ label: ui.nav.updates, href: getLocalizedPath('updates', locale) },
-	{ label: locale === 'en' ? 'Buyer reviews' : 'Reviews', href: '/reviews/' },
+	{ label: locale === 'en' ? 'Buyer reviews' : chrome.navReviews, href: getReviewsIndexPath(locale) },
 	{ label: 'Support', href: getLocalizedPath('support', locale) },
 	{ label: 'Privacy', href: getLocalizedPath('privacy', locale) },
 	{ label: 'Terms', href: getLocalizedPath('terms', locale) },
