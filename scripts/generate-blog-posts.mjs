@@ -25,6 +25,305 @@ const EXT = {
 /** @type {SourcePost[]} */
 const sources = [
 	{
+		id: 'fortnite-beginner-guide',
+		imageKey: 'playerEsp',
+		published: '2026-08-23',
+		updated: '2026-08-23',
+		category: 'How to Play',
+		featured: true,
+		slug: 'fortnite-beginner-guide-2026',
+		title: 'Fortnite Beginner Guide: How to Play in 2026',
+		metaDescription:
+			'New to Fortnite? This beginner guide covers drops, loadouts, storm rotates, and ranked basics for Battle Royale and Zero Build on Windows PC in 2026.',
+		h1: 'Fortnite Beginner Guide: How to Play in 2026',
+		intro:
+			'Start simple. Land, loot a gun, stay in cover, and leave before the storm. This guide is the short path for new Fortnite players.',
+		keywords: ['fortnite beginner guide', 'how to play fortnite', 'fortnite 2026', 'zero build', 'battle royale'],
+		imageAlt: 'Fortnite ESP boxes in a lobby used as a beginner overlay example',
+		sections: [
+			{
+				h2: 'The first five minutes',
+				paragraphs: [
+					'Jump near a named spot, not on top of 20 other players. Grab a shotgun or AR first. Then heals. Then leave if the POI is still loud.',
+					'Official mode rules live on <a href="https://www.fortnite.com/" target="_blank" rel="noopener noreferrer">Fortnite</a>. Seasons change names. The loop does not: loot, rotate, fight on your terms.',
+					'Pro Tip — One job per landing: survive with a gun and two heals. Kills are optional until your inventory is set.',
+				],
+			},
+			{
+				h2: 'Loadout, storm, and fights',
+				paragraphs: [
+					'Keep a simple spine: close gun, mid gun, mobility, heals. See our <a href="/blog/fortnite-best-loadouts-2026/">loadout guide</a> for slot order.',
+					'Move before the storm hurts. Early rotates beat late sprints. Our <a href="/blog/fortnite-storm-rotation-guide/">storm guide</a> covers edge vs center.',
+					'Fight when you have cover and health. Walk away from 50/50s in the open. Zero Build players can read <a href="/blog/fortnite-zero-build-aggressive-strategies/">zero-build aggression</a> after this page.',
+				],
+			},
+			{
+				h2: 'Ranked without the overwhelm',
+				paragraphs: [
+					'Play short sessions. Stop after a bad tilt game. Climb is a loop, not a streak — see the <a href="/blog/fortnite-ranked-climb-guide/">ranked climb guide</a>.',
+					'Warm up 15–25 minutes before ranked. Use the <a href="/blog/fortnite-warmup-maps-ranked/">warmup maps</a> list instead of jumping in cold.',
+					'Try This Today: Land the same medium POI for five games. Screenshot loot at 2:00. Then open <a href="/features/">Features</a> only if you already know the basics and want overlay tools on PC.',
+				],
+			},
+		],
+	},
+	{
+		id: 'fortnite-drop-spots',
+		imageKey: 'battleRoyaleIslandMap',
+		published: '2026-08-22',
+		updated: '2026-08-23',
+		category: 'Drops & Map',
+		featured: true,
+		slug: 'fortnite-best-drop-spots-2026',
+		title: 'Fortnite Drop Spots: Safe vs Hot Landings',
+		metaDescription:
+			'Pick Fortnite landing spots with a simple plan — contest risk, loot speed, and exit paths for ranked games in 2026. Pair this with loot routes.',
+		h1: 'Fortnite Drop Spots: Safe vs Hot Landings',
+		intro:
+			'A good drop is a plan, not a name on the map. Score contest, loot speed, and how you leave.',
+		keywords: ['fortnite drop spots', 'best fortnite landings', 'fortnite poi', 'ranked drops', 'fortnite map'],
+		imageAlt: 'Fortnite raid map view used to plan landing spots and rotates',
+		sections: [
+			{
+				h2: 'Score a drop in 10 seconds',
+				paragraphs: [
+					'Ask three questions: How many people land here? Can I get a gun in 20 seconds? Can I leave without crossing the whole zone?',
+					'Hot drops print kills and also print deaths. Edge spots print loot and sometimes a boring mid-game. Ranked wants expected value, not highlight clips.',
+					'Pro Tip — If the bus path is bad, do not force a famous POI. Pick a nearby unnamed cluster with chests and an exit road.',
+				],
+			},
+			{
+				h2: 'Safe, medium, and hot plans',
+				paragraphs: [
+					'Safe: 0–2 contest. Chain two small POIs. Leave with shotgun, AR, and heals. Medium: 3–6 contest. Land outer roofs, take one fight max, leave by 2:00. Hot: only if you are warming mechanics, not climbing rank.',
+					'After you land, follow a loot order — not a loot wander. Use <a href="/blog/fortnite-loot-routes-guide/">loot routes</a> for timers.',
+					'Map names change each <a href="https://www.fortnite.com/" target="_blank" rel="noopener noreferrer">Fortnite</a> season. Keep the geometry: roofs first, then inside, then a marked exit.',
+				],
+			},
+			{
+				h2: 'Leave on time',
+				paragraphs: [
+					'The drop is done when your slots are filled, not when the POI is empty. Late third parties farm players who stay to mop up.',
+					'Pair this page with <a href="/blog/fortnite-storm-rotation-guide/">storm rotates</a> and the <a href="/blog/fortnite-beginner-guide-2026/">beginner guide</a>.',
+					'Try This Today: Pick one medium drop. Play six games. Track how often you leave with shotgun + AR + two heals. Then browse <a href="/faq/">FAQ</a> if you also use PC overlays after landing.',
+				],
+			},
+		],
+	},
+	{
+		id: 'fortnite-ranked-climb',
+		imageKey: 'squadFight',
+		published: '2026-08-21',
+		updated: '2026-08-23',
+		category: 'Ranked',
+		featured: false,
+		slug: 'fortnite-ranked-climb-guide',
+		title: 'Fortnite Ranked Guide: How to Climb in 2026',
+		metaDescription:
+			'Climb Fortnite ranked with a simple loop: loot timer, fight picks, early rotates, and session limits. Built for Battle Royale and Zero Build in 2026.',
+		h1: 'Fortnite Ranked Guide: How to Climb in 2026',
+		intro:
+			'Ranked is a process. Loot on a timer, take good fights, rotate early, and stop when you tilt.',
+		keywords: ['fortnite ranked', 'how to rank up fortnite', 'fortnite climb', 'zero build ranked', 'fortnite 2026'],
+		imageAlt: 'Fortnite squad fight ESP used to show ranked fight information',
+		sections: [
+			{
+				h2: 'Play the loop, not the highlight',
+				paragraphs: [
+					'One lucky hot drop does not move rank. Ten clean games do. Set a goal per session: inventory by 2:00, first rotate before second zone, no open-field 50/50s.',
+					'If you die off spawn three times, change drop — see <a href="/blog/fortnite-best-drop-spots-2026/">drop spots</a>. Ego is not a strategy.',
+					'Pro Tip — Cap sessions at six to eight ranked games. Quality drops when you queue angry.',
+				],
+			},
+			{
+				h2: 'Fights you should take',
+				paragraphs: [
+					'Take fights when you have health, cover, and a reason (zone, reboot, or a weak team). Skip fights that only exist because you heard a shot.',
+					'Zero Build players should use natural cover ladders from the <a href="/blog/fortnite-zero-build-aggressive-strategies/">aggression guide</a>. Build players should not box-fight in storm for pride.',
+					'Loadout mistakes lose more Elo than aim. Keep the <a href="/blog/fortnite-best-loadouts-2026/">loadout spine</a> before chasing mythics.',
+				],
+			},
+			{
+				h2: 'After the match',
+				paragraphs: [
+					'Write one note: drop, first death cause, rotate time. Fix one cause next game. Do not change settings, drop, and binds on the same night — see <a href="/blog/fortnite-pro-settings-guide/">pro settings</a>.',
+					'Check live game health on <a href="https://status.epicgames.com/" target="_blank" rel="noopener noreferrer">Epic Games Status</a> before blaming lag.',
+					'Try This Today: Play five ranked games with one drop and one rule — no third-party chase past 80m. Then read <a href="/updates/">Status</a> only if you also run a PC package after patches.',
+				],
+			},
+		],
+	},
+	{
+		id: 'fortnite-build-vs-zero-build',
+		imageKey: 'battleRoyaleCombat',
+		published: '2026-08-18',
+		updated: '2026-08-23',
+		category: 'Modes',
+		featured: false,
+		slug: 'fortnite-build-vs-zero-build',
+		title: 'Fortnite Build vs Zero Build: Which to Play',
+		metaDescription:
+			'Compare Fortnite Build and Zero Build — fight distance, cover, loadouts, and who should queue each mode in 2026. Short guide for ranked players.',
+		h1: 'Fortnite Build vs Zero Build: Which to Play',
+		intro:
+			'Both modes are Fortnite. They reward different habits. Pick the one that matches how you already fight.',
+		keywords: ['fortnite zero build', 'fortnite build mode', 'zero build vs build', 'fortnite ranked', 'fortnite 2026'],
+		imageAlt: 'Fortnite combat ESP in an open fight, useful for Zero Build reads',
+		sections: [
+			{
+				h2: 'What actually changes',
+				paragraphs: [
+					'Build mode adds walls, ramps, and edits. Fights can reset in a box. Zero Build removes that. Cover is terrain, vehicles, and items you already have.',
+					'Zero Build fights stay longer in the open. First shot and piece control matter more. Build fights punish slow edits and bad piece control.',
+					'Mode rules sit on <a href="https://www.fortnite.com/" target="_blank" rel="noopener noreferrer">Fortnite</a>. Your job is to pick a queue and stay there for a full session.',
+				],
+			},
+			{
+				h2: 'Who should queue what',
+				paragraphs: [
+					'New players: start Zero Build. Less to learn at once. Use the <a href="/blog/fortnite-beginner-guide-2026/">beginner guide</a> first.',
+					'If you already box and edit under pressure, Build ranked is fine. If you freeze when shot, Zero Build plus <a href="/blog/fortnite-zero-build-aggressive-strategies/">aggression habits</a> will climb faster.',
+					'Loadouts overlap: shotgun + AR + heals. Zero Build leans harder on mid-range AR and mobility. See <a href="/blog/fortnite-best-loadouts-2026/">loadouts</a>.',
+				],
+			},
+			{
+				h2: 'Do not mix habits in one night',
+				paragraphs: [
+					'Switching modes every game resets your fight timing. Pick one mode for the session. Warm up in that mode — <a href="/blog/fortnite-warmup-maps-ranked/">warmup maps</a>.',
+					'Try This Today: Queue six games in one mode only. After game three, write whether you died to open space or to a box. Then open <a href="/pricing/">Store</a> only if you already play on Windows PC and want the overlay package.',
+				],
+			},
+		],
+	},
+	{
+		id: 'fortnite-loadouts',
+		imageKey: 'cheatsPackage',
+		published: '2026-08-20',
+		updated: '2026-08-23',
+		category: 'Loadouts',
+		featured: false,
+		slug: 'fortnite-best-loadouts-2026',
+		title: 'Fortnite Loadouts: Best Slot Order in 2026',
+		metaDescription:
+			'A simple Fortnite loadout spine for ranked: shotgun, AR, mobility, and heals. Slot order, swap habits, and when to flex for Zero Build in 2026.',
+		h1: 'Fortnite Loadouts: Best Slot Order in 2026',
+		intro:
+			'Stop filling slots with clutter. Ranked loadouts are a spine: close gun, mid gun, mobility, heals, then one flex.',
+		keywords: ['fortnite loadout', 'best fortnite loadout', 'fortnite shotgun ar', 'zero build loadout', 'fortnite 2026'],
+		imageAlt: 'Fortnite wallhack loot view used to explain loadout and chest priority',
+		sections: [
+			{
+				h2: 'The four-slot spine',
+				paragraphs: [
+					'Slot 1 shotgun (or close SMG in some metas). Slot 2 AR. Slot 3 mobility. Slot 4 heals. Flex is slot 5: sniper, utility, or extra heals.',
+					'This matches how fights actually happen: close panic, then mid spray, then leave. See the <a href="/blog/fortnite-weapon-tier-list/">weapon tier list</a> after each patch.',
+					'Pro Tip — If you die with a mythic in slot 1 and no shotgun, your order is wrong.',
+				],
+			},
+			{
+				h2: 'Zero Build vs Build tweaks',
+				paragraphs: [
+					'Zero Build: keep a mid AR you can beam with. Mobility matters more because you cannot box. Read <a href="/blog/fortnite-build-vs-zero-build/">Build vs Zero Build</a>.',
+					'Build: shotgun timing still wins boxes. Do not carry three ARs. One close, one mid is enough.',
+					'Patch days change numbers. Vaults change the spine. Check notes with our <a href="/blog/fortnite-patch-notes-guide/">patch notes guide</a>.',
+				],
+			},
+			{
+				h2: 'Practice the swap, not the screenshot',
+				paragraphs: [
+					'A pretty inventory loses if you cannot swap to shotgun in 0.3s. Warm that on <a href="/blog/fortnite-warmup-maps-ranked/">warmup maps</a>.',
+					'Loot routes should fill this spine on a timer — <a href="/blog/fortnite-loot-routes-guide/">loot routes</a>.',
+					'Try This Today: For five games, refuse a fifth gun until heals and mobility are filled. Then open <a href="/features/">Features</a> if you use loot markers on PC and need category toggles.',
+				],
+			},
+		],
+	},
+	{
+		id: 'fortnite-storm-rotation',
+		imageKey: 'rebootFight',
+		published: '2026-08-19',
+		updated: '2026-08-23',
+		category: 'Rotations',
+		featured: false,
+		slug: 'fortnite-storm-rotation-guide',
+		title: 'Fortnite Storm Guide: Rotate Early, Win Late',
+		metaDescription:
+			'Learn Fortnite storm rotates — when to leave, how to take edges, and how to avoid late third parties in ranked Battle Royale and Zero Build in 2026.',
+		h1: 'Fortnite Storm Guide: Rotate Early, Win Late',
+		intro:
+			'Most ranked deaths are late rotates, not bad aim. Leave early, take an edge, and stop sprinting through the open.',
+		keywords: ['fortnite storm', 'fortnite rotate', 'zone rotations', 'fortnite ranked', 'zero build rotate'],
+		imageAlt: 'Fortnite combat overlay during a storm rotation fight',
+		sections: [
+			{
+				h2: 'Leave before you must',
+				paragraphs: [
+					'If you start the rotate when the storm is already on your heels, you will silhouette on the edge and get sprayed. Leave while you still have a choice of path.',
+					'Pick a side, not the center. Center is a blender. Edges give cover and info. Tournament film in our <a href="/blog/fortnite-tournament-meta-guide/">tournament meta</a> post shows this every week.',
+					'Pro Tip — Rotate after you heal, not while you heal. Sliding into zone on 20 HP is a donation.',
+				],
+			},
+			{
+				h2: 'Paths that survive third parties',
+				paragraphs: [
+					'Use terrain, buildings, and vehicles. Do not cut the widest open field. Zero Build players should ladder cover — <a href="/blog/fortnite-zero-build-aggressive-strategies/">aggression guide</a>.',
+					'If you hear a fight on your path, go around or wait. Walking into two teams is how 4th places happen.',
+					'Drop plan still matters. A bad landing with no exit makes every storm worse — <a href="/blog/fortnite-best-drop-spots-2026/">drop spots</a>.',
+				],
+			},
+			{
+				h2: 'Endgame is a side pick',
+				paragraphs: [
+					'Late circles reward the team that arrived first and held an angle. That is why ranked climb feels “lucky” when it is actually early movement — <a href="/blog/fortnite-ranked-climb-guide/">ranked climb</a>.',
+					'Try This Today: In six games, start your first rotate 30 seconds earlier than usual. Note whether you took fewer storm tags. Then check <a href="/updates/">Status</a> after a big Fortnite patch if you also use a PC overlay.',
+				],
+			},
+		],
+	},
+	{
+		id: 'fortnite-reboot-plays',
+		imageKey: 'headerArt',
+		published: '2026-08-17',
+		updated: '2026-08-23',
+		category: 'Team Play',
+		featured: false,
+		slug: 'fortnite-reboot-plays-guide',
+		title: 'Fortnite Reboot Guide: Safer Revive Plays',
+		metaDescription:
+			'How to reboot teammates in Fortnite without throwing the game — van timing, cover, third-party risk, and when to leave a downed mate in 2026.',
+		h1: 'Fortnite Reboot Guide: Safer Revive Plays',
+		intro:
+			'Reboots win games and also throw them. Go to the van with a plan, or play the 2-v-3 and live.',
+		keywords: ['fortnite reboot', 'fortnite reboot van', 'fortnite revive', 'duos trios', 'fortnite ranked'],
+		imageAlt: 'Fortnite ESP player tags used when planning a reboot play',
+		sections: [
+			{
+				h2: 'When to reboot at all',
+				paragraphs: [
+					'Reboot if the van is close, zone is kind, and you have heals. Skip it if storm is bad, you are low, and two teams are already crashing.',
+					'A live 2-player team with loot beats a 3-player team that dies at the van. Ranked is not a loyalty test.',
+					'Pro Tip — Call the plan in one sentence: “Van east after heals, then edge.” Silence is how people die together.',
+				],
+			},
+			{
+				h2: 'How to take the van',
+				paragraphs: [
+					'Heal first. Clear the immediate box. One player holds an angle. One interacts. Do not all stand in the van light.',
+					'Leave as soon as the card starts. The reboot is not a campfire. Third parties time the audio.',
+					'Radar-style awareness helps on PC overlays — see <a href="/fortnite-radar-hack/">Radar</a> — but the habit is still “hold, tap, leave.”',
+				],
+			},
+			{
+				h2: 'After they land',
+				paragraphs: [
+					'Give the returning teammate a gun and heals. Do not start a 50/50 in the open while they drop from the sky.',
+					'Then rotate like a full squad again. Use <a href="/blog/fortnite-storm-rotation-guide/">storm rotates</a> so the reboot was not for a storm death.',
+					'Try This Today: In trios, run two games where you skip a bad van on purpose. Note placement. Then read <a href="/support/">Support</a> only if a license or setup issue blocked you from playing.',
+				],
+			},
+		],
+	},
+	{
 		id: 'patch-notes-breakdown',
 		imageKey: 'squadFight',
 		published: '2026-07-29',
@@ -280,7 +579,7 @@ const sources = [
 			{
 				h2: 'Convert strong guns into wins',
 				paragraphs: [
-					'Pair these routes with <a href="/blog/fortnite-zero-build-aggressive-strategies/">zero-build aggression</a> and <a href="/blog/fortnite-weapon-tier-list/">weapon tiers</a>. Leave spawn rich so mid-game becomes a skill check.',
+					'Pair these routes with <a href="/blog/fortnite-zero-build-aggressive-strategies/">zero-build aggression</a>, <a href="/blog/fortnite-weapon-tier-list/">weapon tiers</a>, and <a href="/blog/fortnite-best-drop-spots-2026/">drop spots</a>. Leave spawn rich so mid-game becomes a skill check.',
 					'If you use loot ESP markers in practice, read <a href="/fortnite-esp/">Fortnite ESP</a> for category toggles — then still run the timer so habits stay sharp without overlays.',
 					'Try This Today: Run one uncontested chain for 8 games. Screenshot inventory at 2:30 and compare rarities before adding a contested edge day.',
 				],

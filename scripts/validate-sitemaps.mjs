@@ -52,13 +52,13 @@ async function resolveDistRoot() {
 const SITE = readBrandUrl();
 const IMAGE_SITEMAP_ENTRIES = countBrandSitemapImages();
 
-const BLOG_PAGES = 18; // /blog/ index + 17 posts
+const BLOG_PAGES = 25; // /blog/ index + 24 posts
 const REVIEW_PAGES = 11; // /reviews/ index + 10 review detail pages
 const FAQ_PAGES = 11; // FAQ answer pages (index is in the 25 product pages)
 const ENGLISH_PAGES = 25 + BLOG_PAGES + REVIEW_PAGES + FAQ_PAGES;
 const I18N_LOCALES = 21;
 const PRODUCT_PAGES_PER_LOCALE = 25;
-const BLOG_PAGES_PER_LOCALE = 18;
+const BLOG_PAGES_PER_LOCALE = 25;
 const PAGES_PER_LOCALE = PRODUCT_PAGES_PER_LOCALE + BLOG_PAGES_PER_LOCALE;
 const I18N_URLS = I18N_LOCALES * PAGES_PER_LOCALE;
 const TOTAL_PAGES = ENGLISH_PAGES + I18N_URLS;
@@ -108,6 +108,13 @@ const ENGLISH_PATHS = [
 	'/blog/fortnite-cheats-vs-cheatvault-comparison/',
 	'/blog/elitefn-vs-fortnite-cheats-two-week-test/',
 	'/blog/fortnite-cheats-vs-ghostware-features-pricing/',
+	'/blog/fortnite-beginner-guide-2026/',
+	'/blog/fortnite-best-drop-spots-2026/',
+	'/blog/fortnite-ranked-climb-guide/',
+	'/blog/fortnite-build-vs-zero-build/',
+	'/blog/fortnite-best-loadouts-2026/',
+	'/blog/fortnite-storm-rotation-guide/',
+	'/blog/fortnite-reboot-plays-guide/',
 	'/reviews/',
 	'/reviews/fortnite-soft-aim-review-xkrypt0/',
 	'/reviews/fortnite-esp-zero-build-review-buildsr4k/',
@@ -383,7 +390,9 @@ async function main() {
 	const htmlPaths = await collectHtmlPaths(DIST);
 	const sitemapPaths = new Set(primaryLocs.map((u) => u.replace(SITE, '') || '/'));
 
-	const htmlSet = new Set(htmlPaths);
+	const skipHtml = (p) =>
+		p.includes('/brand-studio') || p === '/404/' || p.endsWith('/404.html');
+	const htmlSet = new Set(htmlPaths.filter((p) => !skipHtml(p)));
 	const missingFromSitemap = [...htmlSet].filter((p) => !sitemapPaths.has(p));
 	const extraInSitemap = [...sitemapPaths].filter((p) => !htmlSet.has(p));
 

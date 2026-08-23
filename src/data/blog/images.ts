@@ -17,4 +17,11 @@ export const blogImageByPostId: Record<string, string> = {
 	'fortnite-cheats-vs-cheatvault': '/images/fortnite-cheats-build-esp.png',
 	'elitefn-two-week-test': '/images/fortnite-aimbot-lock.png',
 	'fortnite-cheats-vs-ghostware': '/images/fortnite-aimbot-tracers.png',
+	'fortnite-beginner-guide': '/images/fortnite-cheats-esp.png',
+	'fortnite-drop-spots': '/images/fortnite-cheats-raid.webp',
+	'fortnite-ranked-climb': '/images/fortnite-cheats-combat.webp',
+	'fortnite-build-vs-zero-build': '/images/fortnite-cheats-aimbot.png',
+	'fortnite-loadouts': '/images/fortnite-cheats-wallhack.png',
+	'fortnite-storm-rotation': '/images/fortnite-cheats-radar.webp',
+	'fortnite-reboot-plays': '/images/fortnite-cheats-hero.png',
 };
